@@ -31,7 +31,7 @@ for(var i=0; i<20; i++)
 
 <p>I had been playing around with <a href="http://paperjs.org/" target="_blank">paper.js</a> for a while and when I was told we'd be having a fizzbuzz codegolf, I started thinking of ways to code something fun using paper.js. Here's what I finally ended up doing. Take a picture - any picture. Analyze the picture pixel by pixel, and calculate how close to being black the pixel is. AKA how much "black" is in the pixel. A pixel with #000 would have a 100% blackness factor, while #fff would have 0%. Do you see what I am getting at, yet? So I take each pixel, put make it blue if it's divisible by 3, red if it's divisible by 5, and purple if divisible by both 3 and 5. This turned out to be a very bad idea - more because I chose a really large picture of monalisa to process, initially. After some trial and error, I ended up resizing the image within the canvas and grouping a set of pixels. Take a group of 10x10 pixels, calculate the collective blackness factor in the group and apply the same logic.</p>
 
-<p>The final code, and the image, can be <a href="http://vinaynaidu.github.io/codegolf/fizzbuzz/" target="_blank">viewed here</a>. The page is best viewed at some distance. The size of the rendered circles are proportional to the blackness factor. The darker the pixels are, the larger they are drawn. Even so, the page has to be viewed at least at arm's legth to see the monalisa behind all the circles!</p>
+<p>The final code, and the image, can be <a href="http://vinaynaidu.github.io/projects/codegolf/fizzbuzz/" target="_blank">viewed here</a>. The page is best viewed at some distance. The size of the rendered circles are proportional to the blackness factor. The darker the pixels are, the larger they are drawn. Even so, the page has to be viewed at least at arm's legth to see the monalisa behind all the circles!</p>
 
 <p><sub>My favourite submission of the day was from Aaron - The letters "FIZZBUZZ" dance up and down on the screen, with the word "FIZZ" forming at every 3 seconds, "BUZZ" forming at every 5, and "FIZZBUZZ" forming at every 15. Have a <a href="http://aaronlecompte.github.io/fbuzz" target="_blank">look at it here</a>.</sub></p>
 
@@ -50,6 +50,6 @@ for(var i=0; i<20; i++)
 
 <p>Once the code was up and running, I had a few more minutes to spare, so I added in a "heatmap", of sorts, to the game. The cell starts off with a green state, and the longer it lives, the close to red it gets. First generation is green and upto 5 different colours of the heatmap, the cell goes from green to yellow to orange to red. This way, I could see which cells are continuing on to next generation easily.</p>
 
-<p>The live example of my game of life <a href="http://vinaynaidu.github.io/codegolf/game-of-life/" target="_blank">is here</a>.</p>
+<p>The live example of my game of life <a href="http://vinaynaidu.github.io/projects/codegolf/game-of-life/" target="_blank">is here</a>.</p>
 
-<sub>The other example that I really liked from this codegolf session was by Alex - a game of life <a href="http://alextrofymenko.github.io/checkbox-of-life/" target="_blank">with checkboxes!</a></sub>
+<p><sub>The other example that I really liked from this codegolf session was by Alex - a game of life <a href="http://alextrofymenko.github.io/checkbox-of-life/" target="_blank">with checkboxes!</a></sub></p>
