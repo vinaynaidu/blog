@@ -1,0 +1,17 @@
+# Site settings
+title: Home
+header-img: img/home-bg.jpg
+email: hello@vinaynaidu.com
+description: "Welcome to the musings of a curious coder"
+baseurl: "/blog"
+url: "http://vinaynaidu.com"
+twitter_username: padfootprong
+github_username:  vinaynaidu
+
+# Build settings
+# markdown: kramdown
+markdown: redcarpet
+highlighter: pygments
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
