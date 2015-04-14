@@ -1,0 +1,27 @@
+---
+layout:     post
+title:      "Codegolf session - part 2"
+subtitle:   "Having fun with Conways game of life"
+date:       2014-07-01 12:00:00
+author:     "Vinay"
+header-img: "img/post-bg-02.jpg"
+---
+
+# Conway's game of life
+
+Conway's game of life is another simple idea that I had a lot of fun coding. As <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">wikipedia</a> puts it, it's a simple cellular automation based on 4 rules:  
+
+* Any live cell with fewer than two live neighbours dies, as if caused by under-population
+* Any live cell with two or three live neighbours lives on to the next generation
+* Any live cell with more than three live neighbours dies, as if by overcrowding
+* Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction
+
+In the simplest of terms, Conways game of life can be seen as a 2x2 matrix with binary values, representing the state of the cell, viz dead or alive. With each iteration, the new value of each row-col position of the matrix is recalculated with the above rules in mind. And, since I already had some experience with paper.js, and, because the best way to represent this would be visually, instead of just printing out matrix states, I went ahead with the javascript route.  
+
+Once the code was up and running, I had a few more minutes to spare, so I added in a "heatmap", of sorts, to the game. The cell starts off with a green state, and the longer it lives, the close to red it gets. First generation is green and upto 5 different colours of the heatmap, the cell goes from green to yellow to orange to red. This way, I could see which cells are continuing on to next generation easily.  
+
+Here's how it looks, once it's all done: 
+
+<center>![]({{ site.baseurl }}/img/game-of-life-short.gif)</center>
+ 
+The live example of my game of life <a href="http://vinaynaidu.github.io/projects/codegolf/game-of-life/" target="_blank">is here</a>.  

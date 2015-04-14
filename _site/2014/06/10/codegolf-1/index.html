@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Welcome to the musings of a curious coder">
+
+    <title>Codegolf session - part 1 - Home</title>
+
+    <link rel="canonical" href="http://vinaynaidu.com/2014/06/10/codegolf-1/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <!-- <a href="/">About</a> -->
+                    <a href="http://vinaynaidu.com">Vinay</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/post-bg-01.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Codegolf session - part 1</h1>
+                    
+                    <h2 class="subheading">Having fun with FizzBuzz and Monalisa</h2>
+                    
+                    <span class="meta">Posted by Vinay on June 10, 2014</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<h1>The idea behind codegolf</h1>
+
+<p>Working in startups can be great for so many reasons. You spend most of your time with a small group of people you trust, and you have a kind of freedom that working in a big corporations don&#39;t seem to offer. Working becomes fun, when the people you work with are wonderful and understanding.  </p>
+
+<p>At <a href="https://healthunlocked.com" target="_blank">HealthUnlocked</a>, sometimes we have the luxury of being able to spend some time away from work - a couple of hours, nothing significant. We come together with the most simplest of ideas, and each developer takes that simple idea and make something out of it. Here, I detail those sessions and what came of it  </p>
+
+<h2>FizzBuzz</h2>
+
+<p>For our first idea, we came up with <a href="http://en.wikipedia.org/wiki/Fizz_buzz" target="_blank">FizzBuzz</a>  - an extremely simple idea. You print N numbers, and every time the number is divisible by 3, it&#39;s replaced with Fizz. Every time it&#39;s divisible by 5, Buzz is printed of the number. If the number is divisible by both 3 and 5, you print FizzBuzz. The whole code can be simply summed up in javascript in a few lines:  </p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span><span class="mi">0</span><span class="p">)</span> 
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;FizzBuzz&quot;</span><span class="p">)</span>        
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> 
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Buzz&quot;</span><span class="p">)</span> 
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> 
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Fizz&quot;</span><span class="p">)</span> 
+  <span class="k">else</span> 
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+
+<p>This simplicity of the code is exactly what makes it an interesting idea. There are so many posibilities that could come out of it. Of course, just doing exactly what I did above with javascript, while tecnically correct, would be too easy and boring, so I wanted to get a bit creative with it.  </p>
+
+<p>I had been playing around with <a href="http://paperjs.org/" target="_blank">paper.js</a> for a while and when I was told we&#39;d be having a fizzbuzz codegolf, I started thinking of ways to code something fun using paper.js. Here&#39;s what I finally ended up doing. Take a picture - any picture. Analyze the picture pixel by pixel, and calculate how close to being black the pixel is. AKA how much &quot;black&quot; is in the pixel. A pixel with <code>#000</code> would have a 100% blackness factor, while <code>#fff</code> would have 0%. Do you see what I am getting at, yet? So I take each pixel, put make it blue if it&#39;s divisible by 3, red if it&#39;s divisible by 5, and purple if divisible by both 3 and 5. This turned out to be a very bad idea - more because I chose a really large picture of monalisa to process, initially. After some trial and error, I ended up resizing the image within the canvas and grouping a set of pixels. Take a group of 10x10 pixels, calculate the collective blackness factor in the group and apply the same logic.  </p>
+
+<p>The final code, and the image, can be <a href="http://vinaynaidu.github.io/projects/codegolf/fizzbuzz/" target="_blank">viewed here</a>. The page is best viewed at some distance. The size of the rendered circles are proportional to the blackness factor. The darker the pixels are, the larger they are drawn. Even so, the page has to be viewed at least at arm&#39;s legth to see the monalisa behind all the circles!</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2014/07/01/codegolf-2/" data-toggle="tooltip" data-placement="top" title="Codegolf session - part 2">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://twitter.com/padfootprong">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/vinaynaidu">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; Home 2015</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

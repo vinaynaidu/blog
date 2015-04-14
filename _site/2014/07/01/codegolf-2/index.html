@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Welcome to the musings of a curious coder">
 
-    <title>Man must explore, and this is exploration at its greatest - Home</title>
+    <title>Codegolf session - part 2 - Home</title>
 
-    <link rel="canonical" href="http://vinaynaidu.com/2014/09/24/man-must-explore/">
+    <link rel="canonical" href="http://vinaynaidu.com/2014/07/01/codegolf-2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -68,16 +68,16 @@
 
 
     <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-06.jpg')">
+<header class="intro-header" style="background-image: url('/img/post-bg-02.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <h1>Man must explore, and this is exploration at its greatest</h1>
+                    <h1>Codegolf session - part 2</h1>
                     
-                    <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                    <h2 class="subheading">Having fun with Conways game of life</h2>
                     
-                    <span class="meta">Posted by Start Bootstrap on September 24, 2014</span>
+                    <span class="meta">Posted by Vinay on July 1, 2014</span>
                 </div>
             </div>
         </div>
@@ -90,40 +90,26 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-				<p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
+				<h1>Conway&#39;s game of life</h1>
 
-<p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science.</p>
+<p>Conway&#39;s game of life is another simple idea that I had a lot of fun coding. As <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">wikipedia</a> puts it, it&#39;s a simple cellular automation based on 4 rules:  </p>
 
-<p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
+<ul>
+<li>Any live cell with fewer than two live neighbours dies, as if caused by under-population</li>
+<li>Any live cell with two or three live neighbours lives on to the next generation</li>
+<li>Any live cell with more than three live neighbours dies, as if by overcrowding</li>
+<li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction</li>
+</ul>
 
-<p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
+<p>In the simplest of terms, Conways game of life can be seen as a 2x2 matrix with binary values, representing the state of the cell, viz dead or alive. With each iteration, the new value of each row-col position of the matrix is recalculated with the above rules in mind. And, since I already had some experience with paper.js, and, because the best way to represent this would be visually, instead of just printing out matrix states, I went ahead with the javascript route.  </p>
 
-<p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
+<p>Once the code was up and running, I had a few more minutes to spare, so I added in a &quot;heatmap&quot;, of sorts, to the game. The cell starts off with a green state, and the longer it lives, the close to red it gets. First generation is green and upto 5 different colours of the heatmap, the cell goes from green to yellow to orange to red. This way, I could see which cells are continuing on to next generation easily.  </p>
 
-<h2 class="section-heading">The Final Frontier</h2>
+<p>Here&#39;s how it looks, once it&#39;s all done: </p>
 
-<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+<p><center><img src="/img/game-of-life-short.gif" alt=""></center></p>
 
-<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-
-<blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
-
-<p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
-
-<h2 class="section-heading">Reaching for the Stars</h2>
-
-<p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>
-
-<p><a href="#">
-    <img src="/img/post-sample-image.jpg" alt="Post Sample Image">
-</a>
-<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span></p>
-
-<p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
-
-<p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
-
-<p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+<p>The live example of my game of life <a href="http://vinaynaidu.github.io/projects/codegolf/game-of-life/" target="_blank">is here</a>.  </p>
 
 
                 <hr>
@@ -131,9 +117,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2014/09/18/i-believe/" data-toggle="tooltip" data-placement="top" title="I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.">&larr; Previous Post</a>
+                        <a href="/2014/06/10/codegolf-1/" data-toggle="tooltip" data-placement="top" title="Codegolf session - part 1">&larr; Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/2014/07/08/continuous-integration-jenkins-dotnet-github/" data-toggle="tooltip" data-placement="top" title="Continuous integration for .Net projects">Next Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
