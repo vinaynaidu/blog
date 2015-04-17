@@ -68,7 +68,7 @@
 
 
     <!-- Post Header -->
-<header class="intro-header" style="background-image: url('/img/post-bg-03.jpg')">
+<header class="intro-header" style="background-image: url('/img/post-bg-04.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -108,6 +108,215 @@
 </ul>
 
 <p>Once all the required softwares are installed, we&#39;re well on our way to start configuring the job. Jenkins, after installation, makes itself available on the port 8080 so it can be accessed by pointing the browser to <code>http://localhost:8080/</code></p>
+
+<p>Right. That&#39;s our brand new jenkins server running. But it needs to understand how to work with git, github, and other parts of our build workflow. This is done by installing plugins. I&#39;ve listed the required plugins, plus some of the plugins I like to use to make it all more useful. You can pick which plugins you want to install.</p>
+
+<p>To install the plugins on jenkins, open up the web interface and go to <code>Manage Jenkins &gt; Manage plugins</code> and switch to <code>Available</code> tabs. From here on, you can search the plugins, enable the ones you want, and install them all at once.</p>
+
+<ul>
+<li><a href="http://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin" target="_blank">Github plugin</a> - This plugin integrates Jenkins with github and makes it very easy to configure builds and set status on commits and pull requests</li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/MSBuild+Plugin" target="_blank">MSBuild plugin</a> - This allows you to use MSBuild console command to build .NET projects</li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Gallio+Plugin" target="_blank">Gallio plugin</a> - Makes it possible to publish the test results.</li>
+</ul>
+
+<p>Later in the post, I will go through the optional plugins that I like to use and what they do.</p>
+
+<h2>Set up Github repository</h2>
+
+<p>Now that we have all the setup work out of the way, lets start with configuring a new job! Hit the <code>New Item</code> from the main menu on Jenkins web interface, and choose a <strong>Freestyle project</strong> - give an appropriate name to your project and you&#39;re ready to configure a freestyle, mix and match style job. </p>
+
+<p>There are several ways you can configure your job to pull from Github. The best (read most secure, and, recommended) way, is to use a deploy key. <a href="https://developer.github.com/guides/managing-deploy-keys/" target="_blank">Deploy keys</a> are unique to each repository and will grant the same permissions to anyone using the deploy keys the same permissions the user creating the deploy key has (which is also configurable). So, when you&#39;re creating the deploy key, make sure you have to right read and write permissions.</p>
+
+<p>We will now need to configure git on the server to work with the deploy keys. Following steps detail how to do that: </p>
+
+<ul>
+<li>Create ssh keys with <code>ssk-keygen -t rsa</code></li>
+<li><p>Create a config file at <code>~/.ssh/config</code> with the content:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Host {Project-name}
+    Hostname github.com
+    User git
+    IdentityFile /path/to/id_rsa
+</code></pre></div></li>
+<li><p>Go to <code>github.com/{Project-name}/settings/keys</code> and use the <code>id_rsa.pub</code> created on step 1 to generate your new deploy key.</p></li>
+</ul>
+
+<p>Now, back in jenkins web interface, on the new job that we just created, select <strong>Git</strong> under <em>Source Code Management</em> with the following values: </p>
+
+<ul>
+<li>Repository URL: <code>git@github.com:OrganizationName/Project-name.git</code> - this <em>has</em>* to be in the same format. If the project is under a username rather than an organization, replace OrganizationName with the username.</li>
+<li>Credentials: Click on <code>Add</code> then: 
+
+<ul>
+<li>select <strong>SSH Username with private key</strong> for <code>Kind</code></li>
+<li>Fill in the server/windows account username for <code>Username</code></li>
+<li>Description is optional and can be empty</li>
+<li>For <code>Private key</code>, select <strong>From Jenkins master ~/.ssh</strong></li>
+</ul></li>
+</ul>
+
+<p>And then hit Add. If everything went well, we should now be able to download the code from Github Repo by building the job.</p>
+
+<p><small><em>Troubleshooting hint:</em> If there is a problem with the timeouts, it us usually the case of not having the right permission to pull the code. This can be debugged by opening the command line as the user Jenkins is running under, and manually pulling the code with <code>git pull project/repo/on/github.git</code> and that should output any errors that are in he configuration</small></p>
+
+<p>Then, under <code>Build Triggers</code>, choose **Build when a change is pushed to github`. This will build the project everything there has been a new commit on Github.</p>
+
+<h2>Building the project</h2>
+
+<p>We have our job downloading the code from Github. Let&#39;s go ahead and build it. Remember the MSBuild plugin we installed above? It needs to be configured to work with the msbuild.exe on the server. Go to <code>Manage Jenkins &gt; Configure system</code> and locate the <strong>MSBuild</strong> section. Hit the <strong>Add MSBuild</strong> button and configure it with the following values: </p>
+
+<ul>
+<li>Name: <code>MSBuild4</code> - This can be anything, I usually name it after the .net framework</li>
+<li>Path to MSBuild: <code>c:\Windows\Microsoft.NET\Framework64\v4.0.30319\msbuild.exe</code> - this is the default path of the msbuild.exe, though it may defer depending on the configuration.</li>
+<li>Default parameters: leave this field empty</li>
+<li>Install automatically: leave unchecked</li>
+</ul>
+
+<p>Then hit save.</p>
+
+<p><center><img src="/img/msbuild-warning.png" alt=""></center></p>
+
+<p><small><em>Note:</em> Once configured, Jenkins may warn about <code>Path to MSBuild</code> is not a valid value, something along the lines of <strong><code>c:\...\msbuild.exe</code> is not a directory on the Jenkins master</strong> - this can be ignored safely. I am note entirely sure why the warning popups up, but if I remove <code>msbuild.exe</code> and just list the parent directory, the build fails.</small></p>
+
+<p>Back in the main job configuration, Add a new build step - <strong>Build a visual Studio project or solution using MSBuild</strong> with the configuration: </p>
+
+<ul>
+<li>MSBuild Version: <strong>MSBuild4</strong> - choose the name of the build we just setup earlier</li>
+<li>MSBuild Build file: <strong>Project.sln</strong> - the solution name or project name of the project that needs to be built.</li>
+<li><p>Command Line Arguments: Arguments to be passed to <code>msbuild.exe</code></p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">/p:Configuration=Release_MySQL /p:DeployOnBuild=true /p:DeleteExistingFiles=True /p:PublishMethod=FileSystem /p:publishUrl=C:\Publish\Aurora-Api
+</code></pre></div></li>
+</ul>
+
+<p><small><em>Note:</em> <code>/m:2</code> on command line arguments will enable parallel builds, while visual studio version can be changed with <code>/p:</code></small></p>
+
+<p>I like to make sure everything is working after each step, by building the project to see if it&#39;s doing what it is supposed to be doing. This lets me fix any issues that may crawl up before it bubbles up to the further steps</p>
+
+<h2>Running unit tests with Gallio MbUnit</h2>
+
+<p>Under build step, add a new <code>build step &gt; Execute windows batch command</code> and add the command line to run gallio.echo.exe on the project.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&quot;C:\Program Files\Gallio\bin\Gallio.Echo.exe&quot; /report-type:xml /verbosity:quiet &quot;Project-name.Tests\bin\Release\*.Tests.dll&quot;
+</code></pre></div>
+<p>The command can just be run on command line, from the workspace folder, to make sure it works and tweak if necesary before adding it here.   </p>
+
+<p>Once that&#39;s done, Jenkins should be fetching code from github, building and testing the solution merrily. Hooray!</p>
+
+<p><center><img src="/img/jenkins-build-and-test.gif" alt=""></center></p>
+
+<p>The tests are being published to <code>Reports</code> folder though, it would be more useful if it was displayed with the job, and we could see an overview of what failed. Remember the Gallio plugin we installed earlier? that&#39;s exactly what the plugin does. So let&#39;s go ahead and configure that.</p>
+
+<p>Create a new <strong>Post Build</strong> step and add the <code>xUnit test result report</code> step</p>
+
+<ul>
+<li>Choose <strong>Gallio-N/A</strong> </li>
+<li>For Patterns, add <code>Reports/*.xml</code> as that&#39;s the location of our test report xml output (configured on command line step above)</li>
+<li>Check <strong>Delete temporart JUnit files</strong> and <strong>Stop and set the build to failed status if there are errors when processing a result file</strong>. Depending on the project type, the others can be enabled too. </li>
+</ul>
+
+<p>You can also configure the failed and skipped test threshold limits. Leaving the boxes empty will fail the build if any test fails or is skipped. </p>
+
+<p>Once configured, the section will look something like this</p>
+
+<p><center><img src="/img/publish-report.png" alt=""></center></p>
+
+<p>Simple stuff!</p>
+
+<h2>Configuring useful post build tasks</h2>
+
+<p>While the above steps are sufficient to build and test the project, we can do improve the job and make Jenkins more useful. </p>
+
+<h4>1. Archive the artifacts</h4>
+
+<p>Artifacts are the published files - the resulting files of a successful build. We can tell Jenkins what needs to be archived so the archive can be directly published to staging server, if needed, or downloaded and used on whim. </p>
+
+<p>Set the artifacts by adding a new <code>Post Build &gt; Archive the artifacts</code> task and in the <strong>Files to archive:</strong> section, provide a csv of all the necessary files. Wildcards can be used as well.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">Project-name\bin\*,Project-name\Global.asax,Project-name\lib\*,Project-name\Web.config,Project-name\db.config,Project-name\settings.config,Project-name\log4net.config,assets\*
+</code></pre></div>
+<p>If the project is hosted on EC2, there are AWS plugins available that will enable the artifacts to be deployed directly to the EC2 instance.</p>
+
+<h4>2. Scan workspace for open tasks</h4>
+
+<p>Visual studio has a neat feature where all the comments starting with <code>//TODO:</code> are listed under the <strong>TODO</strong> pane. We can use a plugin in Jenkins that scans all the files and keeps track of such comments, and lists new items or graphs count over time. I find it useful to spreed through them to see if there is something important that needs to be done before a release</p>
+
+<p>The functionality is available via the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Task+Scanner+Plugin" target="_blank">Scan workspace plugin</a> and can be included in the job by adding a new post build step. I add the step <strong>Scan workspace for open tasks</strong> and configure it like so: </p>
+
+<ul>
+<li>Files to scan: <code>**/*.cs</code> - this scans all directores in the workspace for .cs files</li>
+<li>Files to exclude: leave blank</li>
+<li>Tasks tags: <strong>High priority:</strong> <code>Fixme</code>, <strong>Normal:</strong> <code>TODO</code>, <strong>Low:</strong> <code>TBD</code></li>
+</ul>
+
+<p>That will now help Jenkins keep tracks of the list of things for us &#39;to do&#39;</p>
+
+<h4>3. Workspace cleanup after successful build</h4>
+
+<p>The Gallio plugin will scan <code>Reports/*.xml</code> for all reports and each time the test is run, that will result in a new xml file. If the directory is not clearned, they accumulate over time and when one of the test fail, they always fail - because each time the plugin looks at all the files. This was one of the gotchas that took me a while to uncover in the very beginning. There are several ways we can avoid it, but the easiest would be to cleanup directories after the build. The results will be stored in Jenkins db so removing the reports after they are archived will not affect the tracking capabilities of Jenkins.</p>
+
+<p><a href="https://wiki.jenkins-ci.org/display/JENKINS/Workspace+Cleanup+Plugin" target="_blank">Workspace cleanup plugin</a> provides a minimal configuration and is very easy to configure. </p>
+
+<p>Add this step to the job with, yet again, new post build task <strong>Delete workspace when build is done</strong> and set the configurations as needed:  </p>
+
+<p><code>include (from dropdown)</code> and <code>Reports/*</code> tells it to delete all filese from our reports folder</p>
+
+<p>When that&#39;s done, you can see jenkins scanning for the comments </p>
+
+<p><center><img src="/img/jenkins-post-build.gif" alt=""></center></p>
+
+<h4>4. List github branches with build status</h4>
+
+<p>Jenkins can be configured to build specific branches only, but if you&#39;re building all branches then the list of successful builds on Jenkins can get confusing. There is no easy way to say which build was from which branch, short of clicking each of them and checking for the commit hash and comparing tasks on github.</p>
+
+<p><a href="http://wiki.jenkins-ci.org/display/JENKINS/Groovy+Postbuild+Plugin" target="_blank">Groovy post build plugin</a> will help us with adding custom values to the build list. </p>
+
+<p>On post build, add a new <strong>Groovy Postbuild</strong> task, and enter the following script in the script textbox: </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">def matcher = manager.getLogMatcher(&quot;.*Checking out Revision (.*) (.*)\$&quot;)
+if(matcher?.matches()) {
+    branch = matcher.group(2).substring(8,matcher.group(2).length()-1)
+    commit = matcher.group(1).substring(0,6)
+    githuburl = manager.build.getParent().getProperty(&quot;com.coravy.hudson.plugins.github.GithubProjectProperty&quot;).getProjectUrl().commitId(matcher.group(1))
+    description = &quot;&lt;a href=&#39;${githuburl}&#39;&gt;${commit}&lt;/a&gt;&quot;+&quot; - &quot;+branch 
+    manager.build.setDescription(description)
+}
+</code></pre></div>
+<p>And now, all our builds list the branch name along with the status! </p>
+
+<p><center><img src="/img/build-history.png" alt=""></center></p>
+
+<h4>4. Github status update</h4>
+
+<p><a href="https://developer.github.com/v3/repos/statuses/" target="_blank">Github statuses</a> are awesome. It lets you know which commits are broken and which ones are great before you merge the pull request so you know you don&#39;t need to worry about build failing after merge if you&#39;re only building master branch. </p>
+
+<p>The Github plugin we installed earlier takes care of it. All we need to do to update the build status on github is add a new Post build task <strong>Set pending status on github</strong> and <strong>Set build status on github</strong> at the beginning of the build, and at the end, respectively. </p>
+
+<p><center><img src="/img/jenkins-github-status.png" alt=""></center></p>
+
+<hr>
+
+<p>Jenkins has plenty of other integrations as well. At HealthUnlocked, we&#39;re a big fan of <a href="https://slack.com/" target="_blank">Slack</a> and we have a channel of build and test notifications. Slack makes it very easy to write integrations and API&#39;s that can post to channels and we have our Jenkins posting the build status so we know immediately if a build fails! </p>
+
+<p><center><img src="/img/jenkins-slack.png" alt=""></center></p>
+
+<p>All these extra (minimal effort) measures will make sure that not only the code everyone writes is well and good, but also notifies people immediately when something is wrong, which is very important, as it eliminates the &quot;out of sight, out of mind&quot; scenarios. Being able to act on a problem is well and good, but being able to know about a problem is just as important.</p>
+
+<h2>Troubleshooting</h2>
+
+<p>I thought I&#39;d add a section about the common problems I&#39;ve faced, while installing Jenkins several times. More often than not, I&#39;d see the same errors crop up and it was handy to have a note of what I did fix it last time it happened.</p>
+
+<h4>Nuget package manager fails to download packages</h4>
+
+<p>While compiling from within the Visual Studio IDE, the user has permissions to automatically pull in the depending packages. This isn&#39;t the case when we&#39;re building the project using msbuild.exe and Nuget will not have the right permissions to download. This is an easy to fix problem, though, luckily - Add a new Environment variable <code>EnableNuGetPackageRestore</code> with value <strong>true</strong> under system variables and that will take care of this problem.</p>
+
+<h4>Error MSB4019: Microsoft.WebApplications.Targets was not found</h4>
+
+<p>This is an annoying problem to be stuck with and it took me a while to work out what was happening. Copy over the <code>WebApplications</code> folder from your dev machine to the build server and that will fix the problem. The file is usually located at </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v10.0\WebApplications
+</code></pre></div>
+<p>You can find out more about this problem at <a href="http://stackoverflow.com/a/5344246" target="_blank">this stackoverflow answer</a>.</p>
+
+<h4>Error CS0234: The type or namespace name &#39;Mvc&#39; does not exist in the namespace &#39;System.Web&#39;</h4>
+
+<p>What? I swear I installed the right MVC framework on my build server! Well, turns out the build number mismatch causes this problem as well. You could try copying the dlls found on the dev machine over to the build server, but, that will not always work and what&#39;s more, we&#39;ll need to repeat this every time we steup a server.</p>
+
+<p>Better way to do this would be to remove existing MVC reference on the project, and install it from NuGet. That will help jenkins just download the same version of the package.</p>
 
 
                 <hr>
