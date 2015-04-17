@@ -4,6 +4,7 @@ header-img: img/home-bg.jpg
 email: hello@vinaynaidu.com
 description: "Welcome to the musings of a curious coder"
 baseurl: "/blog"
+#baseurl: ""
 url: "http://vinaynaidu.com"
 twitter_username: padfootprong
 github_username:  vinaynaidu
