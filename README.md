@@ -1,6 +1,6 @@
 #Blog of Projects
 
-This is a collection of a few of my curious and hobby projects.
+This is a collection of a few of my curious hobby projects.
 
 
 ---
