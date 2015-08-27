@@ -22,7 +22,7 @@ Being primarily interested in testing out my REST API, every time I start up fid
     
 This looks something like this: 
 
-<center>![]({{ site.baseurl }}/img/fiddler-composer-away.jpg)
+<center>![]({{ site.baseurl }}/img/fiddler-composer-away.jpg)</center>
     
 This lets me easily test my api endpoints and inspect the response without a lot of switching tabs around. 
 While the main window remembers it's position and size, the composer window starts of fresh and I always have to manually fix it. Over the last 4 or so years, 
