@@ -45,5 +45,5 @@ Things to note here though, initially, my whole `onBoot` method was commented ou
 FiddlerScript is supported from version `4.4.7.1` and up.
 
 Another cool tip about fiddler: if you usually don't want to capture all the traffic going in and out from every application, but just want fiddler's traffic, 
-start fiddler with `-noattach` parameter and it will do just that. I've added shortcut to my taskbar with this param and use that when I need am working with
+start fiddler with `-noattach` parameter and it will do just that. I've added shortcut to my taskbar with this param and use that when I'm working with
 endpoints, which is most of the time!  
