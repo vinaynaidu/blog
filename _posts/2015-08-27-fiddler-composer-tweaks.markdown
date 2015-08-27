@@ -16,14 +16,15 @@ One thing that always annoyed me, though, is that fiddler starts up like this:
 
 <center>![]({{ site.baseurl }}/img/fiddler-old-startup.png)</center>  
 
-Being primarily interested in testing out my REST API, every time I start up fiddler, I: 
-    * switch to `Composer` tab,then to `Options` and check the `tear apart` option, to seperate the composer window
-    * Move and resize seperated window to appropriate position 
-    
+Being primarily interested in testing out my REST API, every time I start up fiddler, I:  
+
+* switch to `Composer` tab,then to `Options` and check the `tear apart` option, to seperate the composer window
+* Move and resize seperated window to appropriate position 
+ 
 This looks something like this: 
 
 <center>![]({{ site.baseurl }}/img/fiddler-composer-away.jpg)</center>
-    
+
 This lets me easily test my api endpoints and inspect the response without a lot of switching tabs around. 
 While the main window remembers it's position and size, the composer window starts of fresh and I always have to manually fix it. Over the last 4 or so years, 
 it's become a bit of a chore to manually doing this and I while wondering if there was a way to better way to do this, 
@@ -32,12 +33,14 @@ I shot off an email via fiddler feedback (under help menu) describing my (trivia
 I got a reply right away from the awesome <a href="https://twitter.com/ericlaw" target="_blank">Eric Lawrence</a>, the creator of fiddler, detailing 
 how to do just that. Turns out, fiddler supports customisations through scripting and to automate what I want, all I had to do was:  
 
-    * Click Rules > Customize Rules to open the FiddlerScript
-    * Scroll to the `OnBoot` function and add the following lines inside it: 
-      
+* Click Rules > Customize Rules to open the FiddlerScript
+* Scroll to the `OnBoot` function and add the following lines inside it:  
+
+<!-- codeblock seperator -->
+
     FiddlerApplication.UI.actQuickExec("!composer move 123,456,789,1000");
     FiddlerApplication.UI.actQuickExec("!composer activate Scratchpad");
-    
+ 
 The first line get composer to detach and itself from main window and set it's position on screen, with `XPos`, `YPos`, `Width` and `Height` for the composer's window.
 The second line will open up the `Scratchpad` tab on composer window. You can of course change it to `Parsed` or any other tabs and that works well enough.  
 
