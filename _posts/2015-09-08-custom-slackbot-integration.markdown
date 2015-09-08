@@ -75,12 +75,45 @@ And that's it, the entirety of slack bot request life cycle. If multiple slash c
 
 What the backend does is quite straight forward. it reads in the `text` parameter and the first word is always the *sub command*. So, my bot worked based on these parameters:  
 
-| Command | sub command | args | interpretation |  
-|---|---|---|---|  
-| `/jarvis define osmosis` | `define` | `osmosis` | display meaning of "osmosis" |  
-| `/jarvis urban Net Forget` | `urban` | `Net Forget` | Search in Urban dictionary for "FWIW" |  
-| `/jarvis pugme` | `pugme` | `nil` | show me a random image of a pug! |
-| `/jarvis deploy api to test` | `deploy` | `api to test` | deploy latest build from jenkins to test machine |
+<table>
+    <thead>
+        <tr>
+            <td>Command</td>
+            <td>Sub command</td>
+            <td>Args</td>
+            <td>Interpretation</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`/jarvis define osmosis`</td>
+            <td>`define`</td>
+            <td>`osmosis`</td>
+            <td>display meaning of "osmosis"</td>
+        </tr>
+        
+        <tr>
+            <td>`/jarvis urban Net Forget`</td>
+            <td>`urban`</td>
+            <td>`Net Forget`</td>
+            <td>Search in Urban dictionary for "Net Forget"</td>
+        </tr>
+        
+        <tr>
+            <td>`/jarvis pugme`</td>
+            <td>`pugme`</td>
+            <td>`nil`</td>
+            <td>show me a random image of a pug!</td>
+        </tr>
+        
+        <tr>
+            <td>`/jarvis deploy api to test`</td>
+            <td>`deploy`</td>
+            <td>`api to test`</td>
+            <td>deploy latest build from jenkins to test machine</td>
+        </tr>
+    </tbody>
+</table> 
 
 This meant that in clojure, all I had to do to work with sub commands, is put the `text` parameter through a <a href="https://github.com/vinaynaidu/SpaceRain/blob/master/src/spacerain/core.clj#L23-L30" target="_blank">switch block</a> and call appropriate function.  
 
