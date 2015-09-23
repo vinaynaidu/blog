@@ -7,25 +7,25 @@ author:     "Vinay"
 header-img: "img/post-bg-slackbot.jpg"
 ---
 
-<a href="https://slack.com" target="_blank">Slack</a> is cool. I've used it for quite a while now and I think it's my favourite communications tool so far. What really makes slack amazing is its amazing integrations. There's an integration for pretty much everything you can think of. Github notifications, jenkin builds, jira task managements, my favourite <a href="" target="_blank">random gifs</a> for reactions and responses... and the best one by far - custom integrations.  
+<a href="https://slack.com" target="_blank">Slack</a> is cool. I've used it for quite a while now and I think it's my favourite communications tool so far. What really makes slack awesome is its amazing integrations. There's an integration for pretty much everything you can think of. Github notifications, jenkin builds, jira task managements, my favourite <a href="" target="_blank">random gifs</a> for reactions and responses... and the best one by far - custom integrations.  
 
 What's so great about custom integrations? You want to push certain version of your app to staging or test machine? just type `/jarvis deploy api to test`, or maybe `/jarvis deploy pacman 2.3 to staging`. Or maybe you just want a definition of some big word someone just used; type in `/jarvis define retrospective`. How about a fun random definition of something from urban dictionary? you can do `/jarvis urban senator` or even `/jarvis urban IIRC` if you cannot recall the full form of an acronym from the ever expanding list. Oh, I know, how about this - you're having a bad day and you just need something to cheer you up. Jarvis to the rescue again! Type `/jarvis pugme` would result in the bot posting a random picture of a pug (courtesy of <a href="https://pugme.herokuapp.com" target="_blank">pugme</a>). Anyway, you get the idea.   
 
-I setup a custom slash command backed by a bot running on Heroku, because, hey, heroku is awesome and free. The command, lets assume, was called `Jarvis` (yes, borrowed from the famous Ironman). Jarvis let me do all of that, and has plenty room to extend the supported commands.  
+I setup a custom slash command backed by a bot running on Heroku, because, hey, heroku is awesome and free. The command, lets assume, was called `Jarvis` (yes, borrowed from the famous Ironman). Jarvis lets me do all of that, and has plenty room to extend the supported commands.    
    
 I'll go over the steps I took to build the slack bot, and mention any reasons that went behind the choices. Word of warning though, this is going to be a high level overview of the process, rather than a step by step walkthrough. Nevertheless, there will be enough details to put the pieces together to make your own slackbot.   
 
 ### Slack integrations
 
-First things first, you will need a slack account (I shouldn't really have to say this!). Slack is amazingly developer friendly and support <a href="https://api.slack.com/" target="_blank">multiple types of integrations</a>. Incoming and outgoing webhooks, Realtime Web Api, custom slash commands, just to mention a few. Their documentation is very detailed and the support team are very friendly too, I was stuck around a few minor things a couple of times and both time they helped me understand the api's and possible workarounds for what I wanted to achieve, when it wasn't directly supproted. So all in all, I'd say if you want to develop a custom slack integration, you're in good hands.  
+First things first, you will need a slack account - I shouldn't really have to say this! Slack is amazingly developer friendly and supports <a href="https://api.slack.com/" target="_blank">multiple types of integrations</a>. Incoming and outgoing webhooks, Realtime Web Api, custom slash commands, just to mention a few. Their documentation is very detailed and the support team are very friendly too, I was stuck around a few minor things a couple of times and both times they helped me understand the api and possible workarounds for what I wanted to achieve, when it wasn't directly supproted. So all in all, I'd say if you want to develop a custom slack integration, you're in good hands.  
 
 The easiest choice to work with, that takes minimal effort to setup, is the remote control. It is literally a `HTTP POST`. No fuss. The next level up is webhooks, and naturally I went with the incoming and outgoing webhooks at first. But I soon realized that they were very restrictive in terms of permissions. I wanted the bot to respond to calls anywhere - private and public channels, or one to one messages; and it's something you cannot do with either webhooks or remote control. So the current bot works with a slash command.  
 
-The slash command request also expects a 200 header response and is limited in formatting options. I had to mention who issued the command etc and the incoming webhook has great formatting options for that kind of thing, so almost all tasks, as soon as they recieve the slash command, send an empty 200 response and then follow up with an incoming webhook with actual response. For the end user, the difference is nil, all they see is they get a response for their slash command, they are none the wiser and I get to process and format my commands. It's almost as good as getting a cake AND having it.   
+The slash command request also expects a 200 header response and is limited in formatting options. I had to mention who issued the command etc and the incoming webhooks has great formatting options for that kind of thing, so almost all tasks, as soon as they recieve the slash command, send an empty 200 response and then follow up with an incoming webhook with actual response. For the end user, the difference is nil, all they see is they get a response for their slash command, they are none the wiser and I get to process and format my commands. It's almost as good as having a cake AND eating it.   
 
 ### Setup a custom slash command
 
-The idea behind slash command is simple enough - you setup a <a href="https://api.slack.com/slash-commands" target="_blank">new slash command</a> and every time someone issues a the slash command, some data is sent to configurable URL via `HTTP POST`. Taken from the documentation, the `POST` data could look like this:  
+The idea behind slash command is simple enough - you setup a <a href="https://api.slack.com/slash-commands" target="_blank">new slash command</a> and every time someone issues a the slash command, some data is sent to a configurable URL via `HTTP POST`. Taken from the documentation, the `POST` data could look like this:  
 
     {
         token=gIkuvaNzQIHg97ATvDxqgjtO
@@ -39,9 +39,7 @@ The idea behind slash command is simple enough - you setup a <a href="https://ap
         text=94070
     }
 
-Public channels are identified by `channel_id`, private channels are identified by `private_channel_id`, and DM's (direct messages) are identified by `user_id`. However, `channel_id` property is named ambiguously, and will contain `private_channel_id` or `user_id` when posted from private channel and DM respectively. Simply put, we can always send the response with original `channel_id` to post to the same place the slash command was issued from.  
-
-The key to posting in any channel - public, private, or DM, is the `channel_id`. Even though it's identified with `user_id`, the `channel_id` contains the right id for any channel or DM.  
+Public channels are identified by `channel_id`, private channels are identified by `private_channel_id`, and DM's (direct messages) are identified by `user_id`. However, `channel_id` property is named ambiguously, and will contain `private_channel_id` or `user_id` when posted from private channel and DM respectively. Simply put, we can always send the response with original `channel_id` to post to the same place the slash command was issued from, regardless of where it was issued from - DM, public or private groups.  
 
 Once you follow the brain dead simple instructions to setup a slash command, Slack generates a unique `Token` for that integration. This token will have to be included in any response json that is being sent as a reply.  
 
@@ -58,9 +56,11 @@ I used clojure to build my slack bot for two primary reasons:
 
 I said two primary reasons... the last one was probably more important in this descision making than the other two!  
 
-The entire project is available on github, under the codename <a href="https://github.com/vinaynaidu/SpaceRain" target="_blank">SpaceRain</a>. I like using codenames for my projects so if the project evolves and deviates from what it originally was planned to do, then the namespaces etc won't be left behind; but it's also a lot of fun to use codenames.  
+The entire project is available on github, under the codename <a href="https://github.com/vinaynaidu/SpaceRain" target="_blank">SpaceRain</a>. I like using codenames for my projects so if the project evolves and deviates from what it originally was planned to do, then the namespaces etc won't be left behind; Plus it's also a lot of fun to use codenames.  
 
 *Note:* The deployment and rollback part of the code has since been moved to it's own project and and SpaceRain simply delegated the process to that project. As all the servers were run on Amazon EC2, the access keys etc had to be kept seperate and internal and that project was run on an internal machine. For simplicity reasons, SpaceRain contains none of the deployment code.  
+
+### And now to the fun stuff
 
 Building the actual bot is probably the easiest (and thankfully the most fun) part. The basic idea behind slash command is quite simple.   
 
@@ -124,8 +124,9 @@ This meant that in clojure, all I had to do to work with sub commands, is put th
           "define" (t/define args)
           "urban" (t/urban-define args)))
 
-From here on out, the function is responsible for doing the appropriate task and send a json payload response with 200 headers. For example, the `pugbomb`'s task is to get a random pug image and send that url path in the payload, something akin to:   
+From here on out, the individual functions are responsible for performing the appropriate task and send a json payload response with 200 headers. For example, the `pugbomb`'s task is to get a random pug image and send that url path in the payload, something akin to:   
 
+    ;Returns 1 pug url
     (let [pugs (client/get "http://pugme.herokuapp.com/bomb?count=1")
           pug-url (-> (ch/parse-string (get-in response [:body]) true) :pugs first)
           response {:text p
@@ -133,7 +134,7 @@ From here on out, the function is responsible for doing the appropriate task and
                     :channel channel_id}]
         (post-to-slack response))
 
-Here, I'm using `pugme.herokuapp.com` api to get an array of random pug image urls, with count 1 so there will just be one item in the array, and returning that url in payload.  
+Here, I'm using `pugme.herokuapp.com` api to get an array of random pug image urls, with count 1 so there will just be one item in the array, and returning the url in payload.  
 
 All tasks are performed in the `spacerain.tasks` <a href="https://github.com/vinaynaidu/SpaceRain/blob/master/src/spacerain/task.clj" target="_blank">namespace</a>. Have a look around the project and you will understand how most functions work.  
 
@@ -146,4 +147,4 @@ You'll need to signup to <a href="https://market.mashape.com/" target="_blank">M
 Another thing to note here: Heroku uses <a href="https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application" target="_blank">environment variables</a> for configuration, so they'll have to be setup using heroku toolbelt. I'm using <a href="https://github.com/weavejester/environ" target="_blank">Environ</a>, a clojure library to read in my <a href="https://github.com/vinaynaidu/SpaceRain/blob/master/src/spacerain/config.clj#L32" target="_blank">Mashape key</a>  
 
 
-That pretty much details the SpaceRain project and how I setup a custom Slack bot. Feel free to use the code, fork the repo, and/or submit pull requests.  
+That pretty much details the SpaceRain project and how I setup a custom Slack bot. Feel free to use the code, fork the repo, and/or submit pull requests. If you have any questions, you can always catch me at <a href="https://twitter.com/padfootprong" target="_blank">@padfootprong</a> 
