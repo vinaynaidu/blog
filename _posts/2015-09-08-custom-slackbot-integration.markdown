@@ -86,30 +86,30 @@ What the backend does is quite straight forward. it reads in the `text` paramete
     </thead>
     <tbody>
         <tr>
-            <td>`/jarvis define osmosis`</td>
-            <td>`define`</td>
-            <td>`osmosis`</td>
+            <td><code>/jarvis define osmosis</code></td>
+            <td><code>define</code></td>
+            <td><code>osmosis</code></td>
             <td>display meaning of "osmosis"</td>
         </tr>
         
         <tr>
-            <td>`/jarvis urban Net Forget`</td>
-            <td>`urban`</td>
-            <td>`Net Forget`</td>
+            <td><code>/jarvis urban Net Forget</code></td>
+            <td><code>urban</code></td>
+            <td><code>Net Forget</code></td>
             <td>Search in Urban dictionary for "Net Forget"</td>
         </tr>
         
         <tr>
-            <td>`/jarvis pugme`</td>
-            <td>`pugme`</td>
-            <td>`nil`</td>
+            <td><code>/jarvis pugme</code></td>
+            <td><code>pugme</code></td>
+            <td><code>nil</code></td>
             <td>show me a random image of a pug!</td>
         </tr>
         
         <tr>
-            <td>`/jarvis deploy api to test`</td>
-            <td>`deploy`</td>
-            <td>`api to test`</td>
+            <td><code>/jarvis deploy api to test</code></td>
+            <td><code>deploy</code></td>
+            <td><code>api to test</code></td>
             <td>deploy latest build from jenkins to test machine</td>
         </tr>
     </tbody>
