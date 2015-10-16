@@ -17,11 +17,11 @@ I'll go over the steps I took to build the slack bot, and mention any reasons th
 
 ### Slack integrations
 
-First things first, you will need a slack account - I shouldn't really have to say this! Slack is amazingly developer friendly and supports <a href="https://api.slack.com/" target="_blank">multiple types of integrations</a>. Incoming and outgoing webhooks, Realtime Web Api, custom slash commands, just to mention a few. Their documentation is very detailed and the support team are very friendly too, I was stuck around a few minor things a couple of times and both times they helped me understand the api and possible workarounds for what I wanted to achieve, when it wasn't directly supproted. So all in all, I'd say if you want to develop a custom slack integration, you're in good hands.  
+First things first, you will need a slack account. Slack is amazingly developer friendly and supports <a href="https://api.slack.com/" target="_blank">multiple types of integrations</a>. Incoming and outgoing webhooks, Realtime Web Api, custom slash commands, just to mention a few. Their documentation is very detailed and the support team are very friendly too, I was stuck around a few minor things a couple of times and both times they helped me understand the api and possible workarounds for what I wanted to achieve, when it wasn't directly supported. So all in all, I'd say if you want to develop a custom slack integration, you're in good hands.  
 
-The easiest choice to work with, that takes minimal effort to setup, is the remote control. It is literally a `HTTP POST`. No fuss. The next level up is webhooks, and naturally I went with the incoming and outgoing webhooks at first. But I soon realized that they were very restrictive in terms of permissions. I wanted the bot to respond to calls anywhere - private and public channels, or one to one messages; and it's something you cannot do with either webhooks or remote control. So the current bot works with a slash command.  
+The easiest choice to work with, that takes minimal effort to setup, is the remote control. It is literally a `HTTP POST`. No fuss. The next level up is webhooks, and naturally I went with the incoming and outgoing webhooks at first. But I soon realised that they were very restrictive in terms of permissions. I wanted the bot to respond to calls anywhere - private and public channels, or one to one messages; and it's something you cannot do with either webhooks or remote control. So the current bot works with a slash command.  
 
-The slash command request also expects a 200 header response and is limited in formatting options. I had to mention who issued the command etc and the incoming webhooks has great formatting options for that kind of thing, so almost all tasks, as soon as they recieve the slash command, send an empty 200 response and then follow up with an incoming webhook with actual response. For the end user, the difference is nil, all they see is they get a response for their slash command, they are none the wiser and I get to process and format my commands. It's almost as good as having a cake AND eating it.   
+The slash command request also expects a 200 header response and is limited in formatting options. I had to mention who issued the command etc and the incoming webhooks has great formatting options for that kind of thing, so almost all tasks, as soon as they receive the slash command, send an empty 200 response and then follow up with an incoming webhook with actual response. For the end user, the difference is nil, all they see is they get a response for their slash command, they are none the wiser and I get to process and format my commands. It's almost as good as having a cake AND eating it.   
 
 ### Setup a custom slash command
 
@@ -54,11 +54,11 @@ I used clojure to build my slack bot for two primary reasons:
  * Hosting clojure apps with heroku was extremely easy
  * I really, really love clojure. It's a functional programming bliss.
 
-I said two primary reasons... the last one was probably more important in this descision making than the other two!  
+I said two primary reasons... the last one was probably more important in this decision making than the other two!  
 
 The entire project is available on github, under the codename <a href="https://github.com/vinaynaidu/SpaceRain" target="_blank">SpaceRain</a>. I like using codenames for my projects so if the project evolves and deviates from what it originally was planned to do, then the namespaces etc won't be left behind; Plus it's also a lot of fun to use codenames.  
 
-*Note:* The deployment and rollback part of the code has since been moved to it's own project and and SpaceRain simply delegated the process to that project. As all the servers were run on Amazon EC2, the access keys etc had to be kept seperate and internal and that project was run on an internal machine. For simplicity reasons, SpaceRain contains none of the deployment code.  
+*Note:* The deployment and rollback part of the code has since been moved to it's own project and and SpaceRain simply delegated the process to that project. As all the servers were run on Amazon EC2, the access keys etc had to be kept separate and internal and that project was run on an internal machine. For simplicity reasons, SpaceRain contains none of the deployment code.  
 
 ### And now to the fun stuff
 
@@ -140,7 +140,7 @@ All tasks are performed in the `spacerain.tasks` <a href="https://github.com/vin
 
 ### Mashape API
 
-I mentioned earlier that the bot provides cambridge dictionary and urban dictionary meaning to words, via `define` and `urban` sub commands. I originally looked into using their own api's and while there were plenty free dictionary api's available, they quality was questionable and cambridge only had a pay to use api's. Urban dictionary offered no api's at all. After looking around a little bit more, I ended up using <a href="https://market.mashape.com/explore" target="_blank">Mashape API</a>. It somehow provides a lot of good quality api's, urban dictionary included! and it is free to use upto certain requests an hour. Seeing as the bot was being used for a simple in-house purpose for a small startup, this suited me perfectly.  
+I mentioned earlier that the bot provides cambridge dictionary and urban dictionary meaning to words, via `define` and `urban` sub commands. I originally looked into using their own api's and while there were plenty free dictionary api's available, they quality was questionable and cambridge only had a pay to use api's. Urban dictionary offered no api's at all. After looking around a little bit more, I ended up using <a href="https://market.mashape.com/explore" target="_blank">Mashape API</a>. It somehow provides a lot of good quality api's, urban dictionary included! and it is free to use up to certain requests an hour. Seeing as the bot was being used for a simple in-house purpose for a small startup, this suited me perfectly.  
 
 You'll need to signup to <a href="https://market.mashape.com/" target="_blank">Mashape</a> and generate your own application key to continue using the api's.  
 
