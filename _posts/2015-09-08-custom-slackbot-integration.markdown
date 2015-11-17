@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Kickass custom Slack bot"
-subtitle:   "Building a custom bot that responds to slash commands using slack integration using clojure"
+subtitle:   "Building a custom bot that responds to slash commands with clojure and slack integrations"
 date:       2015-09-08 15:16:00
 author:     "Vinay"
 header-img: "img/post-bg-slackbot.jpg"
