@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Working with LESS (and Grunt)"
-subtitle:   "Tying up LESS with grunt to is more fun than manually pre processing it"
+subtitle:   "Tying up LESS with grunt is more fun than manually pre processing it"
 date:       2015-12-20 10:41:00
 author:     "Vinay"
 header-img: "img/post-bg-grunt.jpg"
