@@ -20,19 +20,18 @@ To setup the workflow for new projects, below steps can be used as guideline to 
 * Install the `grunt-contrib-less` package with: `npm install grunt-contrib-less`
 * Once the plugin is installed, load the plugin with `grunt.loadNpmTasks('grunt-contrib-less');`
 * Add a new task in Gruntfile.js to preprocess less files. The code below instructs grunt to convert `src/styles.less` into `src/styles.css`, while compressing the destination file (specified in the options)
-<br /> 
- 
-	less: {
-			development: {
-				options: {
-					compress: true
-					yuicompress: true
-				},
-				files: {
-					"src/styles.css": "src/styles.less"
+
+		less: {
+				development: {
+					options: {
+						compress: true
+						yuicompress: true
+					},
+					files: {
+						"src/styles.css": "src/styles.less"
+					}
 				}
 			}
-		}
 
 
 * Finally, register the less task in the default task list with: `grunt.registerTask('default', [less]);`
@@ -49,14 +48,13 @@ Of course, running the grunt task after every change manually can be tedious. Gr
 * Install the plugin with npm install grunt-contrib-watch
 * Load the plugin by adding grunt.loadNpmTasks('grunt-contrib-less'); into Gruntfile.js
 * Add the configurations for the watch task with:
-<br /> 
 
-	watch: {
-		styles: {
-			files: ["src/styles.less"],
-			tasks: ['less']
+		watch: {
+			styles: {
+				files: ["src/styles.less"],
+				tasks: ['less']
+			}
 		}
-	}
 
 Essentially, this is telling grunt-watch to watch for changes in `["src/styles.less"]` and invoke the `less` task (configured in step 1) anytime the file changes. Now pull up a command prompt, `cd` to project directory, and run grunt watch and the watch task will fire up and start watching the files.
 
@@ -68,17 +66,16 @@ Essentially, this is telling grunt-watch to watch for changes in `["src/styles.l
 What makes it even better, is that Grunt-watch plugin has livereload built in, all that's needed is to enable it on the watch options configuration. To get the browser to refresh however, there are a few steps required:
 
 * Enable LiveReload in watch configuration
-<br /> 
-
-	watch: {
-		options: {
-			livereload: true
-		},
-		styles: {
-			files: ["src/styles.less"],
-			tasks: ['less']
+ 
+		watch: {
+			options: {
+				livereload: true
+			},
+			styles: {
+				files: ["src/styles.less"],
+				tasks: ['less']
+			}
 		}
-	}
 
 
 * now running grunt watch will start the LiveReload server on default port 35729.
@@ -91,24 +88,23 @@ Since livereload script file is not needed in the index.html on production, grun
 * Install grunt-grep with `npm install grunt-grep`
 * Add `<!--@grep dev-->` next to the livereload script tag
 * Configure Gruntfile.js with
-<br /> 
 
-	{
-	    grep: {
-	      options: {
-	        fileOverride: true
-	      },
-	      production: {
-	        files: {
-	          'src/index.html': [
-	            'src/index.html'
-	          ]
-	        },
-	        options: {
-	          pattern: 'dev'
-	        }
-	      }
-	    }
-	}
+		{
+		    grep: {
+		      options: {
+		        fileOverride: true
+		      },
+		      production: {
+		        files: {
+		          'src/index.html': [
+		            'src/index.html'
+		          ]
+		        },
+		        options: {
+		          pattern: 'dev'
+		        }
+		      }
+		    }
+		}
 
 Finally register the task under default tasks, and you're all set to concentrate on coding something fun without fuffing about with browsers and command lines too often!
