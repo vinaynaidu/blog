@@ -15,13 +15,11 @@ If the current project has grunt already configured, running 'grunt watch' is al
 
 To setup the workflow for new projects, below steps can be used as guideline to configure grunt to automate tasks.
 
-
 ## Configure `grunt-contrib-less` to process `.less` files
 
 * Install the `grunt-contrib-less` package with: `npm install grunt-contrib-less`
 * Once the plugin is installed, load the plugin with `grunt.loadNpmTasks('grunt-contrib-less');`
-* Add a new task in Gruntfile.js to preprocess less files. The code below instructs grunt to convert `src/styles.less` into `src/styles.css`, while compressing the destination file (specified in the options)  
-
+* Add a new task in Gruntfile.js to preprocess less files. The code below instructs grunt to convert `src/styles.less` into `src/styles.css`, while compressing the destination file (specified in the options)
 <br /> 
  
 	less: {
@@ -51,7 +49,6 @@ Of course, running the grunt task after every change manually can be tedious. Gr
 * Install the plugin with npm install grunt-contrib-watch
 * Load the plugin by adding grunt.loadNpmTasks('grunt-contrib-less'); into Gruntfile.js
 * Add the configurations for the watch task with:
-
 <br /> 
 
 	watch: {
@@ -71,7 +68,6 @@ Essentially, this is telling grunt-watch to watch for changes in `["src/styles.l
 What makes it even better, is that Grunt-watch plugin has livereload built in, all that's needed is to enable it on the watch options configuration. To get the browser to refresh however, there are a few steps required:
 
 * Enable LiveReload in watch configuration
-
 <br /> 
 
 	watch: {
@@ -95,7 +91,6 @@ Since livereload script file is not needed in the index.html on production, grun
 * Install grunt-grep with `npm install grunt-grep`
 * Add `<!--@grep dev-->` next to the livereload script tag
 * Configure Gruntfile.js with
-
 <br /> 
 
 	{
