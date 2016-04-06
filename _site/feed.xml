@@ -3,11 +3,415 @@
   <channel>
     <title>Home</title>
     <description>Welcome to the musings of a curious coder</description>
-    <link>http://vinaynaidu.com/</link>
-    <atom:link href="http://vinaynaidu.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 17 Apr 2015 11:27:24 +0100</pubDate>
-    <lastBuildDate>Fri, 17 Apr 2015 11:27:24 +0100</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <link>http://blog.vinaynaidu.com/</link>
+    <atom:link href="http://blog.vinaynaidu.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Wed, 06 Apr 2016 13:02:58 +0100</pubDate>
+    <lastBuildDate>Wed, 06 Apr 2016 13:02:58 +0100</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>How would you tweet if you were drunk?</title>
+        <description>&lt;h3&gt;Why did I make a drunk twitter bot?&lt;/h3&gt;
+
+&lt;p&gt;There are plenty of things I love about being a Londoner. One of those is hanging out with my pals in one of the many amazing pubs. Not because I love to drink, but because my friends turn hilarious when they are too drunk.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s always fascinating to me, as someone who&amp;#39;s never been drunk, to see the language capabilities of my friends deteriorate after every drink; it&amp;#39;s been the cause of many a drunk whatsapp text messages that were hilarious the next day.&lt;/p&gt;
+
+&lt;p&gt;Got me thinking though, Can I teach a bot to construct sentences in a way drunk people would? Well, that was the start of a few fun days of programming, and the result is this &lt;a href=&quot;https://twitter.com/drunktweetbot&quot; target=&quot;_blank&quot;&gt;Drunk Twitter Bot&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Okay... So what does it do?&lt;/h4&gt;
+
+&lt;p&gt;Exactly what the above section summarises. The bot goes through your tweets, dynamically constructs a lexicography of your twitter vocabulary, gets drunk, constructs a sentence, and tweets it back to you. Result is a tweet that &lt;em&gt;could&lt;/em&gt; be similar if you tweeted while you were drunk.&lt;/p&gt;
+
+&lt;p&gt;Here are some drunk tweets that are constructed this way: &lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en-gb&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/Ed_Johnson&quot;&gt;@Ed_Johnson&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/IfIWereYouAndDrunk?src=hash&quot;&gt;#IfIWereYouAndDrunk&lt;/a&gt; : The Hawks have been holding back for some cheesecake....nah man&lt;/p&gt;&amp;mdash; Drunk Tweeter (@drunktweetbot) &lt;a href=&quot;https://twitter.com/drunktweetbot/status/602685532452343808&quot;&gt;25 May 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en-gb&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/dzhdzhdijidiji&quot;&gt;@dzhdzhdijidiji&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/IfIWereYouAndDrunk?src=hash&quot;&gt;#IfIWereYouAndDrunk&lt;/a&gt; tfw you come from the person in front of the pit lord&lt;/p&gt;&amp;mdash; Drunk Tweeter (@drunktweetbot) &lt;a href=&quot;https://twitter.com/drunktweetbot/status/602705663769354240&quot;&gt;25 May 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en-gb&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/SenoyaDriskell&quot;&gt;@SenoyaDriskell&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/IfIWereYouAndDrunk?src=hash&quot;&gt;#IfIWereYouAndDrunk&lt;/a&gt; YIPPEE!! Thanks for the most importantly... No expectation…&lt;/p&gt;&amp;mdash; Drunk Tweeter (@drunktweetbot) &lt;a href=&quot;https://twitter.com/drunktweetbot/status/602856685015846912&quot;&gt;25 May 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en-gb&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/maggi_nnn&quot;&gt;@maggi_nnn&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/IfIWereYouAndDrunk?src=hash&quot;&gt;#IfIWereYouAndDrunk&lt;/a&gt; : भाग बहनचोद। : The most unselfish love involves the worst way round.&lt;/p&gt;&amp;mdash; Drunk Tweeter (@drunktweetbot) &lt;a href=&quot;https://twitter.com/drunktweetbot/status/601979877860999168&quot;&gt;23 May 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;h3&gt;The making&lt;/h3&gt;
+
+&lt;p&gt;One of the first challenges for me when I started working on this idea was to figure out a way to construct a lexicography / dictionary of all the words in English language, and then figure out the symantics and relationship between words so I can construct gramatically valid sentences. As a first prototype, I tried doing that with &lt;a href=&quot;http://neo4j.com/&quot; target=&quot;_blank&quot;&gt;Neo4j&lt;/a&gt;; a NoSql graph database built exactly for this kind of scenarios. &lt;/p&gt;
+
+&lt;p&gt;However, as soon as I started the tedious process of normalizing and converting all the symantics into nodes and relationships for graph database, it became clear to me that this method is probably not very feasible. It would take a lot of manual work on my part to keep it upto date. What if I wanted to expand it to other languages? Oh, let&amp;#39;s not forget all the made up words that people use these days.&lt;/p&gt;
+
+&lt;p&gt;I wanted to be a bit smart about it and make it dynamic so that the bot would learn the language constantly and adapt to the habits of the people it&amp;#39;s trying to immitate. This is also one of the reasons I chose to go the twitter route. Where else am I going to find inexhaustible number of people talking about various things constantly? &lt;/p&gt;
+
+&lt;p&gt;With twitter, Not only I had a ready stream of words pouring in from all over the world, but it was also in various languages, should I chose to expand the bot to other languages.&lt;/p&gt;
+
+&lt;p&gt;Once I had these conclusions drawn, I quickly abandoned the idea of manually constructing the symantics for the language as natural language processing was a much smarter idea.&lt;/p&gt;
+
+&lt;h3&gt;Enter Markov&amp;#39;s Chain&lt;/h3&gt;
+
+&lt;p&gt;The twitter bot now looks at trending stream, picks up random user, constructs a dictionary of all the words in all the tweets in that account simply by counting all the occurance of a word w.r.t. the count of words that follows the given word, and the word that is followed by the given word.&lt;/p&gt;
+
+&lt;p&gt;For example, consider this sentence: &lt;code&gt;&amp;quot;It was a nice day. All the nice days had plenty sun.&amp;quot;&lt;/code&gt; Looking at the word &lt;code&gt;day&lt;/code&gt;, there are two occurances. (I &lt;a href=&quot;https://en.wikipedia.org/wiki/Stemming&quot; target=&quot;_blank&quot;&gt;stem&lt;/a&gt; the words so the comparision is more accurate). &lt;code&gt;Day&lt;/code&gt; is followed by &lt;code&gt;all&lt;/code&gt;, and &lt;code&gt;had&lt;/code&gt;. It is followed by &lt;code&gt;nice&lt;/code&gt; twice though. So when the bot is constructing a sentence and comes across the word &lt;code&gt;nice&lt;/code&gt;, the probability of the next word being &lt;code&gt;day&lt;/code&gt; is higher than other words.&lt;/p&gt;
+
+&lt;p&gt;For this to happen, I construct a &amp;quot;spinning roulette wheel&amp;quot;, and select the next word in sequence for the sentence based on the weight of the word, proportional to the times the next word occurred. The code for this block is: &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(defn wrand
+  &amp;quot;given a vector of slice sizes, returns the index of a slice given a
+  random spin of a roulette wheel with compartments proportional to
+  slices.&amp;quot;
+  [slices]
+  (let [total (reduce + slices)
+        r (rand total)]
+    (loop [i 0 sum 0]
+      (if (&amp;lt; r (+ (slices i) sum))
+        i
+        (recur (inc i) (+ (slices i) sum))))))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I loop through the dictionary and construct an array of words repeated proportional to the times they occured in the dictionary and select a random word from the array. Additionally, I mix up the proportion a little bit to make it seem like a &amp;quot;drunk&amp;quot; sentence.&lt;/p&gt;
+
+&lt;p&gt;Since the sentence is constructed based entirely on the &lt;a href=&quot;https://en.wikipedia.org/wiki/Markov_chain&quot; target=&quot;_blank&quot;&gt;markov&amp;#39;s chain&lt;/a&gt; algorithm, It has an added benefit of the sentence being in any language.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en-gb&quot;&gt;&lt;p lang=&quot;th&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/NuDdy_YH&quot;&gt;@NuDdy_YH&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/IfIWereYouAndDrunk?src=hash&quot;&gt;#IfIWereYouAndDrunk&lt;/a&gt; ก้อเดินหน้าต่อไปนะ ทุกคนทำหน้าที่ตัวเองให้ดีที่สุด มีความสุขกับที่เปน จบ&lt;/p&gt;&amp;mdash; Drunk Tweeter (@drunktweetbot) &lt;a href=&quot;https://twitter.com/drunktweetbot/status/602066454993903616&quot;&gt;23 May 2015&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Looks like I offended someone with that tweet! The original tweeter had a few choice words to say about that tweet when he read it!&lt;/p&gt;
+
+&lt;h3&gt;Room for improvement&lt;/h3&gt;
+
+&lt;p&gt;Though the basics of the sentence generation is in place, it is a bit too slow as it constructs the dictionary for every user by placing them in memory. Perhaps changing the dictionary to a better data structure and using redis is a way to make it faster, it needs a bit of research.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;d also like to add some interactive-ness to the bot by making it respond to users. If someone wanted to see their own drunk tweet, they could tweet the bot and ask for a drunk tweet. I&amp;#39;ll have to find some time to make these improvements, and when I do, I&amp;#39;ll update this blog post.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2016 17:12:38 +0000</pubDate>
+        <link>http://blog.vinaynaidu.com/2016/01/07/how-would-you-tweet-if-you-were-drunk/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2016/01/07/how-would-you-tweet-if-you-were-drunk/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Working with LESS (and Grunt)</title>
+        <description>&lt;p&gt;This blog post is more of a reference for me when I have to setup another JS project with grunt and LESS in the future, so I can pick what&amp;#39;s necessary right here rather than googling all over the internet.&lt;/p&gt;
+
+&lt;p&gt;The basics of less is covered in great detail on the source website. Less makes it very easy to write component-style css which is easy to maintain and read. Browsers, however, don&amp;#39;t understand LESS files natively, so they will have to be processed into &lt;code&gt;.css&lt;/code&gt; files. Any time a change is made to a &lt;code&gt;.less&lt;/code&gt; file, it needs to be converted into its css equivalent before the browser can show those changes. This repetitive task can be easily automated with &lt;a href=&quot;http://gruntjs.com/&quot; target=&quot;_blank&quot;&gt;Grunt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If the current project has grunt already configured, running &amp;#39;grunt watch&amp;#39; is all that is required to start the process running.&lt;/p&gt;
+
+&lt;p&gt;To setup the workflow for new projects, below steps can be used as guideline to configure grunt to automate tasks.&lt;/p&gt;
+
+&lt;h2&gt;Configure &lt;code&gt;grunt-contrib-less&lt;/code&gt; to process &lt;code&gt;.less&lt;/code&gt; files&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install the &lt;code&gt;grunt-contrib-less&lt;/code&gt; package with: &lt;code&gt;npm install grunt-contrib-less&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Once the plugin is installed, load the plugin with &lt;code&gt;grunt.loadNpmTasks(&amp;#39;grunt-contrib-less&amp;#39;);&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add a new task in Gruntfile.js to preprocess less files. The code below instructs grunt to convert &lt;code&gt;src/styles.less&lt;/code&gt; into &lt;code&gt;src/styles.css&lt;/code&gt;, while compressing the destination file (specified in the options)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;less: {
+        development: {
+            options: {
+                compress: true
+                yuicompress: true
+            },
+            files: {
+                &amp;quot;src/styles.css&amp;quot;: &amp;quot;src/styles.less&amp;quot;
+            }
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finally, register the less task in the default task list with: &lt;code&gt;grunt.registerTask(&amp;#39;default&amp;#39;, [less]);&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That is all there is to it. Now every time grunt is run, the &lt;code&gt;.less&lt;/code&gt; file(s) will be processed and converted into css files.&lt;/p&gt;
+
+&lt;h2&gt;Configure grunt-contrib-watch plugin to automatically process files on change&lt;/h2&gt;
+
+&lt;p&gt;Of course, running the grunt task after every change manually can be tedious. Grunt is meant to automate things, afterall, so we can ask grunt to do this automatically as well, by using the &lt;code&gt;grunt-contrib-watch&lt;/code&gt; plugin. grunt-watch can be told to watch and monitor certain file types (or files) and perform a grunt task when something changes. The tasks can be split into multiple tasks depending on file types or mixed and matched, depending on the project needs. For the purpose of processing less files automatically, calling the above configured less task on file change is enough.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install the plugin with npm install grunt-contrib-watch&lt;/li&gt;
+&lt;li&gt;Load the plugin by adding grunt.loadNpmTasks(&amp;#39;grunt-contrib-less&amp;#39;); into Gruntfile.js&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add the configurations for the watch task with:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;watch: {
+    styles: {
+        files: [&amp;quot;src/styles.less&amp;quot;],
+        tasks: [&amp;#39;less&amp;#39;]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Essentially, this is telling grunt-watch to watch for changes in &lt;code&gt;[&amp;quot;src/styles.less&amp;quot;]&lt;/code&gt; and invoke the &lt;code&gt;less&lt;/code&gt; task (configured in step 1) anytime the file changes. Now pull up a command prompt, &lt;code&gt;cd&lt;/code&gt; to project directory, and run grunt watch and the watch task will fire up and start watching the files.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: It is recommended to not register watch task into the default task list if the CI is configured to run grunt as this will result in files being watched indefinitely, thereby resulting in infinite compile time. Either configure a second task list with &amp;#39;dev&amp;#39; options and run &lt;code&gt;grunt dev&lt;/code&gt; for watching if multiple tasks are needed, or just running grunt watch manually.&lt;/p&gt;
+
+&lt;h2&gt;Taking watch a step further with LiveReload&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://livereload.com/&quot; target=&quot;_blank&quot;&gt;LiveReload&lt;/a&gt; is a cool plugin that automatically refreshes the browser anytime a file that it is monitoring changes. What this means, is that it eliminates the need to focus the browser and hit refresh manually every time a change is made. It is a great tool to increase productivity as the programmer can now just focus on the editor and save changes, to see the results automatically update on the browser.
+What makes it even better, is that Grunt-watch plugin has livereload built in, all that&amp;#39;s needed is to enable it on the watch options configuration. To get the browser to refresh however, there are a few steps required:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Enable LiveReload in watch configuration&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;watch: {
+    options: {
+        livereload: true
+    },
+    styles: {
+        files: [&amp;quot;src/styles.less&amp;quot;],
+        tasks: [&amp;#39;less&amp;#39;]
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;now running grunt watch will start the LiveReload server on default port 35729.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Add &lt;code&gt;&amp;lt;script src=&amp;quot;//localhost:35729/livereload.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt; to the index.html file and refresh the page once.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now the &lt;code&gt;.less&lt;/code&gt; file is monitored for any change and browser is updated automatically on save. Other files like .html and .js can also be added to the file list so the browser updates when there is a change on those files too.&lt;/p&gt;
+
+&lt;p&gt;Since livereload script file is not needed in the index.html on production, grunt can be configured to remove the script on other environmental builds as well. grunt-grep is a plugin that will help with this.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install grunt-grep with &lt;code&gt;npm install grunt-grep&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Add &lt;code&gt;&amp;lt;!--@grep dev--&amp;gt;&lt;/code&gt; next to the livereload script tag&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Configure Gruntfile.js with&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{
+    grep: {
+      options: {
+        fileOverride: true
+      },
+      production: {
+        files: {
+          &amp;#39;src/index.html&amp;#39;: [
+            &amp;#39;src/index.html&amp;#39;
+          ]
+        },
+        options: {
+          pattern: &amp;#39;dev&amp;#39;
+        }
+      }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Finally register the task under default tasks, and you&amp;#39;re all set to concentrate on coding something fun without fuffing about with browsers and command lines too often!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 10:41:00 +0000</pubDate>
+        <link>http://blog.vinaynaidu.com/2015/12/20/working-with-grunt-and-less/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2015/12/20/working-with-grunt-and-less/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Kickass custom Slack bot</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://slack.com&quot; target=&quot;_blank&quot;&gt;Slack&lt;/a&gt; is cool. I&amp;#39;ve used it for quite a while now and I think it&amp;#39;s my favourite communications tool so far. What really makes slack awesome is its amazing integrations. There&amp;#39;s an integration for pretty much everything you can think of. Github notifications, jenkin builds, jira task managements, my favourite &lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;random gifs&lt;/a&gt; for reactions and responses... and the best one by far - custom integrations.  &lt;/p&gt;
+
+&lt;p&gt;What&amp;#39;s so great about custom integrations? You want to push certain version of your app to staging or test machine? just type &lt;code&gt;/jarvis deploy api to test&lt;/code&gt;, or maybe &lt;code&gt;/jarvis deploy pacman 2.3 to staging&lt;/code&gt;. Or maybe you just want a definition of some big word someone just used; type in &lt;code&gt;/jarvis define retrospective&lt;/code&gt;. How about a fun random definition of something from urban dictionary? you can do &lt;code&gt;/jarvis urban senator&lt;/code&gt; or even &lt;code&gt;/jarvis urban IIRC&lt;/code&gt; if you cannot recall the full form of an acronym from the ever expanding list. Oh, I know, how about this - you&amp;#39;re having a bad day and you just need something to cheer you up. Jarvis to the rescue again! Type &lt;code&gt;/jarvis pugme&lt;/code&gt; would result in the bot posting a random picture of a pug (courtesy of &lt;a href=&quot;https://pugme.herokuapp.com&quot; target=&quot;_blank&quot;&gt;pugme&lt;/a&gt;). Anyway, you get the idea.   &lt;/p&gt;
+
+&lt;p&gt;I setup a custom slash command backed by a bot running on Heroku, because, hey, heroku is awesome and free. The command, lets assume, was called &lt;code&gt;Jarvis&lt;/code&gt; (yes, borrowed from the famous Ironman). Jarvis lets me do all of that, and has plenty room to extend the supported commands.    &lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ll go over the steps I took to build the slack bot, and mention any reasons that went behind the choices. Word of warning though, this is going to be a high level overview of the process, rather than a step by step walkthrough. Nevertheless, there will be enough details to put the pieces together to make your own slackbot.   &lt;/p&gt;
+
+&lt;h3&gt;Slack integrations&lt;/h3&gt;
+
+&lt;p&gt;First things first, you will need a slack account. Slack is amazingly developer friendly and supports &lt;a href=&quot;https://api.slack.com/&quot; target=&quot;_blank&quot;&gt;multiple types of integrations&lt;/a&gt;. Incoming and outgoing webhooks, Realtime Web Api, custom slash commands, just to mention a few. Their documentation is very detailed and the support team are very friendly too, I was stuck around a few minor things a couple of times and both times they helped me understand the api and possible workarounds for what I wanted to achieve, when it wasn&amp;#39;t directly supported. So all in all, I&amp;#39;d say if you want to develop a custom slack integration, you&amp;#39;re in good hands.  &lt;/p&gt;
+
+&lt;p&gt;The easiest choice to work with, that takes minimal effort to setup, is the remote control. It is literally a &lt;code&gt;HTTP POST&lt;/code&gt;. No fuss. The next level up is webhooks, and naturally I went with the incoming and outgoing webhooks at first. But I soon realised that they were very restrictive in terms of permissions. I wanted the bot to respond to calls anywhere - private and public channels, or one to one messages; and it&amp;#39;s something you cannot do with either webhooks or remote control. So the current bot works with a slash command.  &lt;/p&gt;
+
+&lt;p&gt;The slash command request also expects a 200 header response and is limited in formatting options. I had to mention who issued the command etc and the incoming webhooks has great formatting options for that kind of thing, so almost all tasks, as soon as they receive the slash command, send an empty 200 response and then follow up with an incoming webhook with actual response. For the end user, the difference is nil, all they see is they get a response for their slash command, they are none the wiser and I get to process and format my commands. It&amp;#39;s almost as good as having a cake AND eating it.   &lt;/p&gt;
+
+&lt;h3&gt;Setup a custom slash command&lt;/h3&gt;
+
+&lt;p&gt;The idea behind slash command is simple enough - you setup a &lt;a href=&quot;https://api.slack.com/slash-commands&quot; target=&quot;_blank&quot;&gt;new slash command&lt;/a&gt; and every time someone issues a the slash command, some data is sent to a configurable URL via &lt;code&gt;HTTP POST&lt;/code&gt;. Taken from the documentation, the &lt;code&gt;POST&lt;/code&gt; data could look like this:  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{
+    token=gIkuvaNzQIHg97ATvDxqgjtO
+    team_id=T0001
+    team_domain=example
+    channel_id=C2147483705
+    channel_name=test
+    user_id=U2147483697
+    user_name=Steve
+    command=/weather
+    text=94070
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Public channels are identified by &lt;code&gt;channel_id&lt;/code&gt;, private channels are identified by &lt;code&gt;private_channel_id&lt;/code&gt;, and DM&amp;#39;s (direct messages) are identified by &lt;code&gt;user_id&lt;/code&gt;. However, &lt;code&gt;channel_id&lt;/code&gt; property is named ambiguously, and will contain &lt;code&gt;private_channel_id&lt;/code&gt; or &lt;code&gt;user_id&lt;/code&gt; when posted from private channel and DM respectively. Simply put, we can always send the response with original &lt;code&gt;channel_id&lt;/code&gt; to post to the same place the slash command was issued from, regardless of where it was issued from - DM, public or private groups.  &lt;/p&gt;
+
+&lt;p&gt;Once you follow the brain dead simple instructions to setup a slash command, Slack generates a unique &lt;code&gt;Token&lt;/code&gt; for that integration. This token will have to be included in any response json that is being sent as a reply.  &lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&quot;/img/slack-custom-slash-command.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;  &lt;/p&gt;
+
+&lt;h3&gt;Making of Slack bot - SpaceRain&lt;/h3&gt;
+
+&lt;p&gt;I used clojure to build my slack bot for two primary reasons:  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I was closely involved with clojure at the time of starting this bot&lt;/li&gt;
+&lt;li&gt;Hosting clojure apps with heroku was extremely easy&lt;/li&gt;
+&lt;li&gt;I really, really love clojure. It&amp;#39;s a functional programming bliss.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I said two primary reasons... the last one was probably more important in this decision making than the other two!  &lt;/p&gt;
+
+&lt;p&gt;The entire project is available on github, under the codename &lt;a href=&quot;https://github.com/vinaynaidu/SpaceRain&quot; target=&quot;_blank&quot;&gt;SpaceRain&lt;/a&gt;. I like using codenames for my projects so if the project evolves and deviates from what it originally was planned to do, then the namespaces etc won&amp;#39;t be left behind; Plus it&amp;#39;s also a lot of fun to use codenames.  &lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note:&lt;/em&gt; The deployment and rollback part of the code has since been moved to it&amp;#39;s own project and and SpaceRain simply delegated the process to that project. As all the servers were run on Amazon EC2, the access keys etc had to be kept separate and internal and that project was run on an internal machine. For simplicity reasons, SpaceRain contains none of the deployment code.  &lt;/p&gt;
+
+&lt;h3&gt;And now to the fun stuff&lt;/h3&gt;
+
+&lt;p&gt;Building the actual bot is probably the easiest (and thankfully the most fun) part. The basic idea behind slash command is quite simple.   &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User issues a slash command, eg, &lt;code&gt;/Jarvis define protons&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Slack does a &lt;code&gt;HTTP POST&lt;/code&gt; with the above given payload to the custom url that was configured when the slash command was setup. Since my bot was deployed on heroku, the url was &lt;code&gt;http://spacerain.herokuapp.com&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;/code&gt; parameter in the request will have any text (&lt;code&gt;string&lt;/code&gt;) that was entered after the command was issued. For eg, the above command would cause &lt;code&gt;text&lt;/code&gt; to contain &lt;code&gt;define protons&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Read in the &lt;code&gt;text&lt;/code&gt; parameter, do the necessary steps to generate appropriate response JSON payload and reply back with a 200.&lt;/li&gt;
+&lt;li&gt;Slack expects a 200 JSON response for the request. If the result is anything but a valid 200 Json payload, slash burps the entire error message into the channel so make to put the code in a nice try catch block and issue empty response with a message such as &lt;code&gt;invalid attempt&lt;/code&gt; or something similar to keep things clean at the user end.&lt;/li&gt;
+&lt;li&gt;the &lt;code&gt;POST&lt;/code&gt; body will have all the data that is required to process the command and respond to.&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And that&amp;#39;s it, the entirety of slack bot request life cycle. If multiple slash commands are calling the same url, the &lt;code&gt;command&lt;/code&gt; parameter is useful to read in the issued command. For my purposes, I just used one slash command, and several sub-commands style, so I wouldn&amp;#39;t have to modify several command configurations if there was ever a need to move them around.  &lt;/p&gt;
+
+&lt;p&gt;What the backend does is quite straight forward. it reads in the &lt;code&gt;text&lt;/code&gt; parameter and the first word is always the &lt;em&gt;sub command&lt;/em&gt;. So, my bot worked based on these parameters:  &lt;/p&gt;
+
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Command&lt;/td&gt;
+            &lt;td&gt;Sub command&lt;/td&gt;
+            &lt;td&gt;Args&lt;/td&gt;
+            &lt;td&gt;Interpretation&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;/jarvis define osmosis&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;define&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;osmosis&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;display meaning of &quot;osmosis&quot;&lt;/td&gt;
+        &lt;/tr&gt;
+        
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;/jarvis urban Net Forget&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;urban&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;Net Forget&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;Search in Urban dictionary for &quot;Net Forget&quot;&lt;/td&gt;
+        &lt;/tr&gt;
+        
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;/jarvis pugme&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;pugme&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;nil&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;show me a random image of a pug!&lt;/td&gt;
+        &lt;/tr&gt;
+        
+        &lt;tr&gt;
+            &lt;td&gt;&lt;code&gt;/jarvis deploy api to test&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;deploy&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;code&gt;api to test&lt;/code&gt;&lt;/td&gt;
+            &lt;td&gt;deploy latest build from jenkins to test machine&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt; 
+
+&lt;p&gt;This meant that in clojure, all I had to do to work with sub commands, is put the &lt;code&gt;text&lt;/code&gt; parameter through a &lt;a href=&quot;https://github.com/vinaynaidu/SpaceRain/blob/master/src/spacerain/core.clj#L23-L30&quot; target=&quot;_blank&quot;&gt;switch block&lt;/a&gt; and call appropriate function.  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(let [sub-command (first text)
+      args (string/join &amp;quot; &amp;quot; (rest text))]
+    (case (first text)
+      &amp;quot;pugme&amp;quot; (t/pugbomb 1)
+      &amp;quot;define&amp;quot; (t/define args)
+      &amp;quot;urban&amp;quot; (t/urban-define args)))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;From here on out, the individual functions are responsible for performing the appropriate task and send a json payload response with 200 headers. For example, the &lt;code&gt;pugbomb&lt;/code&gt;&amp;#39;s task is to get a random pug image and send that url path in the payload, something akin to:   &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;;Returns 1 pug url
+(let [pugs (client/get &amp;quot;http://pugme.herokuapp.com/bomb?count=1&amp;quot;)
+      pug-url (-&amp;gt; (ch/parse-string (get-in response [:body]) true) :pugs first)
+      response {:text p
+                :username &amp;quot;Jarvis&amp;quot;
+                :channel channel_id}]
+    (post-to-slack response))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here, I&amp;#39;m using &lt;code&gt;pugme.herokuapp.com&lt;/code&gt; api to get an array of random pug image urls, with count 1 so there will just be one item in the array, and returning the url in payload.  &lt;/p&gt;
+
+&lt;p&gt;All tasks are performed in the &lt;code&gt;spacerain.tasks&lt;/code&gt; &lt;a href=&quot;https://github.com/vinaynaidu/SpaceRain/blob/master/src/spacerain/task.clj&quot; target=&quot;_blank&quot;&gt;namespace&lt;/a&gt;. Have a look around the project and you will understand how most functions work.  &lt;/p&gt;
+
+&lt;h3&gt;Mashape API&lt;/h3&gt;
+
+&lt;p&gt;I mentioned earlier that the bot provides cambridge dictionary and urban dictionary meaning to words, via &lt;code&gt;define&lt;/code&gt; and &lt;code&gt;urban&lt;/code&gt; sub commands. I originally looked into using their own api&amp;#39;s and while there were plenty free dictionary api&amp;#39;s available, they quality was questionable and cambridge only had a pay to use api&amp;#39;s. Urban dictionary offered no api&amp;#39;s at all. After looking around a little bit more, I ended up using &lt;a href=&quot;https://market.mashape.com/explore&quot; target=&quot;_blank&quot;&gt;Mashape API&lt;/a&gt;. It somehow provides a lot of good quality api&amp;#39;s, urban dictionary included! and it is free to use up to certain requests an hour. Seeing as the bot was being used for a simple in-house purpose for a small startup, this suited me perfectly.  &lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;ll need to signup to &lt;a href=&quot;https://market.mashape.com/&quot; target=&quot;_blank&quot;&gt;Mashape&lt;/a&gt; and generate your own application key to continue using the api&amp;#39;s.  &lt;/p&gt;
+
+&lt;p&gt;Another thing to note here: Heroku uses &lt;a href=&quot;https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application&quot; target=&quot;_blank&quot;&gt;environment variables&lt;/a&gt; for configuration, so they&amp;#39;ll have to be setup using heroku toolbelt. I&amp;#39;m using &lt;a href=&quot;https://github.com/weavejester/environ&quot; target=&quot;_blank&quot;&gt;Environ&lt;/a&gt;, a clojure library to read in my &lt;a href=&quot;https://github.com/vinaynaidu/SpaceRain/blob/master/src/spacerain/config.clj#L32&quot; target=&quot;_blank&quot;&gt;Mashape key&lt;/a&gt;  &lt;/p&gt;
+
+&lt;p&gt;That pretty much details the SpaceRain project and how I setup a custom Slack bot. Feel free to use the code, fork the repo, and/or submit pull requests. If you have any questions, you can always catch me at &lt;a href=&quot;https://twitter.com/padfootprong&quot; target=&quot;_blank&quot;&gt;@padfootprong&lt;/a&gt; &lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Sep 2015 16:16:00 +0100</pubDate>
+        <link>http://blog.vinaynaidu.com/2015/09/08/custom-slackbot-integration/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2015/09/08/custom-slackbot-integration/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Customizing fiddler</title>
+        <description>&lt;p&gt;I use &lt;A href=&quot;http://www.telerik.com/fiddler&quot; target=&quot;_blank&quot;&gt;fiddler&lt;/a&gt; for all my api testing, development and debugging purposes. 
+It&amp;#39;s simple enough to start with and comes with a lot of functionalities. It lets me capture incoming and outgoing traffic from any application
+and inspect headers and response in a range of formats. All in all, it&amp;#39;s a great tool in any developer&amp;#39;s arsenal and over the years I&amp;#39;ve come to 
+love it.  &lt;/p&gt;
+
+&lt;p&gt;One thing that always annoyed me, though, is that fiddler starts up like this:  &lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&quot;/img/fiddler-old-startup.png&quot; alt=&quot;&quot;&gt;&lt;/center&gt;  &lt;/p&gt;
+
+&lt;p&gt;Being primarily interested in testing out my REST API, every time I start up fiddler, I:  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;switch to &lt;code&gt;Composer&lt;/code&gt; tab,then to &lt;code&gt;Options&lt;/code&gt; and check the &lt;code&gt;tear apart&lt;/code&gt; option, to seperate the composer window&lt;/li&gt;
+&lt;li&gt;Move and resize seperated window to appropriate position &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This looks something like this: &lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&quot;/img/fiddler-composer-away.jpg&quot; alt=&quot;&quot;&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;This lets me easily test my api endpoints and inspect the response without a lot of switching tabs around. 
+While the main window remembers it&amp;#39;s position and size, the composer window starts of fresh and I always have to manually fix it. Over the last 4 or so years, 
+it&amp;#39;s become a bit of a chore to manually doing this and I while wondering if there was a way to better way to do this, 
+I shot off an email via fiddler feedback (under help menu) describing my (trivial) problem.  &lt;/p&gt;
+
+&lt;p&gt;I got a reply right away from the awesome &lt;a href=&quot;https://twitter.com/ericlaw&quot; target=&quot;_blank&quot;&gt;Eric Lawrence&lt;/a&gt;, the creator of fiddler, detailing 
+how to do just that. Turns out, fiddler supports customisations through scripting and to automate what I want, all I had to do was:  &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Click Rules &amp;gt; Customize Rules to open the FiddlerScript&lt;/li&gt;
+&lt;li&gt;Scroll to the &lt;code&gt;OnBoot&lt;/code&gt; function and add the following lines inside it:&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- codeblock seperator --&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;FiddlerApplication.UI.actQuickExec(&amp;quot;!composer move 123,456,789,1000&amp;quot;);
+FiddlerApplication.UI.actQuickExec(&amp;quot;!composer activate Scratchpad&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The first line get composer to detach and itself from main window and set it&amp;#39;s position on screen, with &lt;code&gt;XPos&lt;/code&gt;, &lt;code&gt;YPos&lt;/code&gt;, &lt;code&gt;Width&lt;/code&gt; and &lt;code&gt;Height&lt;/code&gt; for the composer&amp;#39;s window.
+The second line will open up the &lt;code&gt;Scratchpad&lt;/code&gt; tab on composer window. You can of course change it to &lt;code&gt;Parsed&lt;/code&gt; or any other tabs and that works well enough.  &lt;/p&gt;
+
+&lt;p&gt;Things to note here though, initially, my whole &lt;code&gt;onBoot&lt;/code&gt; method was commented out, and I had to uncomment it to get this working. Oh, the 
+FiddlerScript is supported from version &lt;code&gt;4.4.7.1&lt;/code&gt; and up.&lt;/p&gt;
+
+&lt;p&gt;Another cool tip about fiddler: if you usually don&amp;#39;t want to capture all the traffic going in and out from every application, but just want fiddler&amp;#39;s traffic, 
+start fiddler with &lt;code&gt;-noattach&lt;/code&gt; parameter and it will do just that. I&amp;#39;ve added shortcut to my taskbar with this param and use that when I&amp;#39;m working with
+endpoints, which is most of the time!  &lt;/p&gt;
+</description>
+        <pubDate>Thu, 27 Aug 2015 19:34:00 +0100</pubDate>
+        <link>http://blog.vinaynaidu.com/2015/08/27/fiddler-composer-tweaks/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2015/08/27/fiddler-composer-tweaks/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Continuous integration for .Net projects</title>
@@ -240,8 +644,8 @@ if(matcher?.matches()) {
 &lt;p&gt;Better way to do this would be to remove existing MVC reference on the project, and install it from NuGet. That will help jenkins just download the same version of the package.&lt;/p&gt;
 </description>
         <pubDate>Tue, 08 Jul 2014 13:00:00 +0100</pubDate>
-        <link>http://vinaynaidu.com/2014/07/08/continuous-integration-jenkins-dotnet-github/</link>
-        <guid isPermaLink="true">http://vinaynaidu.com/2014/07/08/continuous-integration-jenkins-dotnet-github/</guid>
+        <link>http://blog.vinaynaidu.com/2014/07/08/continuous-integration-jenkins-dotnet-github/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2014/07/08/continuous-integration-jenkins-dotnet-github/</guid>
         
         
       </item>
@@ -270,8 +674,8 @@ if(matcher?.matches()) {
 &lt;p&gt;The live example of my game of life &lt;a href=&quot;http://vinaynaidu.github.io/projects/codegolf/game-of-life/&quot; target=&quot;_blank&quot;&gt;is here&lt;/a&gt;.  &lt;/p&gt;
 </description>
         <pubDate>Tue, 01 Jul 2014 13:00:00 +0100</pubDate>
-        <link>http://vinaynaidu.com/2014/07/01/codegolf-2/</link>
-        <guid isPermaLink="true">http://vinaynaidu.com/2014/07/01/codegolf-2/</guid>
+        <link>http://blog.vinaynaidu.com/2014/07/01/codegolf-2/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2014/07/01/codegolf-2/</guid>
         
         
       </item>
@@ -288,7 +692,7 @@ if(matcher?.matches()) {
 
 &lt;p&gt;For our first idea, we came up with &lt;a href=&quot;http://en.wikipedia.org/wiki/Fizz_buzz&quot; target=&quot;_blank&quot;&gt;FizzBuzz&lt;/a&gt;  - an extremely simple idea. You print N numbers, and every time the number is divisible by 3, it&amp;#39;s replaced with Fizz. Every time it&amp;#39;s divisible by 5, Buzz is printed of the number. If the number is divisible by both 3 and 5, you print FizzBuzz. The whole code can be simply summed up in javascript in a few lines:  &lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
       &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;FizzBuzz&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;        
   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
@@ -297,17 +701,17 @@ if(matcher?.matches()) {
       &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;Fizz&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; 
       &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;This simplicity of the code is exactly what makes it an interesting idea. There are so many posibilities that could come out of it. Of course, just doing exactly what I did above with javascript, while tecnically correct, would be too easy and boring, so I wanted to get a bit creative with it.  &lt;/p&gt;
 
-&lt;p&gt;I had been playing around with &lt;a href=&quot;http://paperjs.org/&quot; target=&quot;_blank&quot;&gt;paper.js&lt;/a&gt; for a while and when I was told we&amp;#39;d be having a fizzbuzz codegolf, I started thinking of ways to code something fun using paper.js. Here&amp;#39;s what I finally ended up doing. Take a picture - any picture. Analyze the picture pixel by pixel, and calculate how close to being black the pixel is. AKA how much &amp;quot;black&amp;quot; is in the pixel. A pixel with &lt;code&gt;#000&lt;/code&gt; would have a 100% blackness factor, while &lt;code&gt;#fff&lt;/code&gt; would have 0%. Do you see what I am getting at, yet? So I take each pixel, put make it blue if it&amp;#39;s divisible by 3, red if it&amp;#39;s divisible by 5, and purple if divisible by both 3 and 5. This turned out to be a very bad idea - more because I chose a really large picture of monalisa to process, initially. After some trial and error, I ended up resizing the image within the canvas and grouping a set of pixels. Take a group of 10x10 pixels, calculate the collective blackness factor in the group and apply the same logic.  &lt;/p&gt;
+&lt;p&gt;I had been playing around with &lt;a href=&quot;http://paperjs.org/&quot; target=&quot;_blank&quot;&gt;paper.js&lt;/a&gt; for a while and when I was told we&amp;#39;d be having a fizzbuzz codegolf, I started thinking of ways to code something fun using paper.js. Here&amp;#39;s what I finally ended up doing. Take a picture - any picture. Analyze the picture pixel by pixel, and calculate how close to being black the pixel is. AKA how much &amp;quot;black&amp;quot; is in the pixel. A pixel with &lt;code&gt;#000&lt;/code&gt; would have a 100% blackness factor, while &lt;code&gt;#fff&lt;/code&gt; would have 0%. Do you see what I am getting at, yet? So I take each pixel, make it blue if it&amp;#39;s divisible by 3, red if it&amp;#39;s divisible by 5, and purple if divisible by both 3 and 5. This turned out to be a very bad idea - more because I chose a really large picture of monalisa to process, initially. After some trial and error, I ended up resizing the image within the canvas and grouping a set of pixels. Take a group of 10x10 pixels, calculate the collective blackness factor in the group and apply the same logic.  &lt;/p&gt;
 
 &lt;p&gt;The final code, and the image, can be &lt;a href=&quot;http://vinaynaidu.github.io/projects/codegolf/fizzbuzz/&quot; target=&quot;_blank&quot;&gt;viewed here&lt;/a&gt;. The page is best viewed at some distance. The size of the rendered circles are proportional to the blackness factor. The darker the pixels are, the larger they are drawn. Even so, the page has to be viewed at least at arm&amp;#39;s legth to see the monalisa behind all the circles!&lt;/p&gt;
 </description>
         <pubDate>Tue, 10 Jun 2014 13:00:00 +0100</pubDate>
-        <link>http://vinaynaidu.com/2014/06/10/codegolf-1/</link>
-        <guid isPermaLink="true">http://vinaynaidu.com/2014/06/10/codegolf-1/</guid>
+        <link>http://blog.vinaynaidu.com/2014/06/10/codegolf-1/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2014/06/10/codegolf-1/</guid>
         
         
       </item>
