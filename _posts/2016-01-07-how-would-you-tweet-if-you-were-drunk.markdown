@@ -80,6 +80,6 @@ Looks like I offended someone with that tweet! The original tweeter had a few ch
 
 ### Room for improvement
 
-Though the basics of the sentence generation is in place, it is a bit too slow as it constructs the dictionary for every user by placing them in memory. Perhaps changing the dictionary to a better data structure and using redis is a way to make it faster, it needs a bit of research.
+Though the basics of the sentence generation is in place, it could be made faster. It constructs the dictionary for every user by placing them in memory. Perhaps changing the dictionary to a better data structure and using redis is a way to make it faster, it needs a bit of research.
 
 I'd also like to add some interactive-ness to the bot by making it respond to users. If someone wanted to see their own drunk tweet, they could tweet the bot and ask for a drunk tweet. I'll have to find some time to make these improvements, and when I do, I'll update this blog post.
