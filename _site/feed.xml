@@ -5,9 +5,51 @@
     <description>Welcome to the musings of a curious coder</description>
     <link>http://blog.vinaynaidu.com/</link>
     <atom:link href="http://blog.vinaynaidu.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 06 Apr 2016 13:09:43 +0100</pubDate>
-    <lastBuildDate>Wed, 06 Apr 2016 13:09:43 +0100</lastBuildDate>
+    <pubDate>Tue, 26 Jul 2016 22:21:55 +0100</pubDate>
+    <lastBuildDate>Tue, 26 Jul 2016 22:21:55 +0100</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Why do I code?</title>
+        <description>&lt;h1&gt;Why do I code?&lt;/h1&gt;
+
+&lt;p&gt;Ever since I wrote my first piece of code, on &lt;a href=&quot;https://en.wikipedia.org/wiki/Logo_(programming_language)&quot; target=&quot;_blank&quot;&gt;Logo&lt;/a&gt;, a simple prgramming language that I used for creating art, I&amp;#39;ve been fascinated by computer programming. For many years, I never really put my head down and thought of why I love programming. I just thought I loved coding because it made me happy.  &lt;/p&gt;
+
+&lt;p&gt;Recently, though, I started to think about why I loved coding just so much. I&amp;#39;ve made it my career. I&amp;#39;ve found passion in programming. Really, what is it about coding that draws me in? &lt;/p&gt;
+
+&lt;h3&gt;The sheer joy of making things.&lt;/h3&gt;
+
+&lt;p&gt;Coding is, at it&amp;#39;s foundation, about creating. Creating solutions to problems. At the end of the day, I&amp;#39;ve created a solution that didn&amp;#39;t exist before. That feeling of having solved a problem is immensly satisfying.&lt;/p&gt;
+
+&lt;h3&gt;The pleasure of making things that are useful for others.&lt;/h3&gt;
+
+&lt;p&gt;One of the most satisfying part of programming, and having a job as a programmer is seeing code I&amp;#39;ve written deployed in a live system and being used by actual people. Especially if it improves their lives in any way.&lt;/p&gt;
+
+&lt;h3&gt;The fascination of problem solving.&lt;/h3&gt;
+
+&lt;p&gt;... and understanding complex puzzle-pieces, and watching them work together. Not only do programs have complex structure and dependencies, there is also the dynamics of the interaction between the parts as the program executes. I&amp;#39;ve been fascinated with Rubiks cube, mathematical puzzles, physics and other such things for as long as I can remember, and arriving at a solution to a complex problem, to me, is enormously rewarding and satisfying. That feeling never gets old, the feeling of having achieved a solution to a problem.&lt;/p&gt;
+
+&lt;h3&gt;The joy of always learning.&lt;/h3&gt;
+
+&lt;p&gt;Technology moves fast. There are new things constantly coming up and better, faster ways to do something. Learning doesn&amp;#39;t stop at your graduation or exam halls. You learn new things every day. While coding, you constantly learn and expand your understanding of both the problem and the solution. In addition, there is almost no limit to what you can learn to improve yourself. Languages, algorithms, methodologies, best practices, tools, frameworks. It keeps the brain sharp and the mind racing.&lt;/p&gt;
+
+&lt;h3&gt;The delight of working in such a tractable medium.&lt;/h3&gt;
+
+&lt;p&gt;I think the programmer, like a poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of imagination. Most of the problem solving happens in my head. What I type is only an end product of what my head has been formulating and re-formulating.&lt;br&gt;
+A few times I&amp;#39;ve been unable to solve a particularly tricky problem, I&amp;#39;d give up for the day hoping to see it with fresh mind the next morning; only to dream of the solution. As soon as I wake up and realise what has happened, it seems painfully obvious a solution and I feel silly for not thinking of it consciously. &lt;/p&gt;
+
+&lt;p&gt;That is the beauty of coding. Most of the work happens in the brain. My brain might know the solution but I&amp;#39;m so caught up in the solving it the wrong way, I&amp;#39;m ignoring the basic facts that define the problem and when I put everything aside and sleep it off, my brain shouts out the solution.&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;&lt;sup&gt;ps: This post has drawn inspiration from &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Mythical_Man-Month&quot; target=&quot;_blank&quot;&gt;The mythical man-month&lt;/a&gt;.&lt;/sup&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Jul 2016 20:57:00 +0100</pubDate>
+        <link>http://blog.vinaynaidu.com/2016/07/26/why-i-code/</link>
+        <guid isPermaLink="true">http://blog.vinaynaidu.com/2016/07/26/why-i-code/</guid>
+        
+        
+      </item>
     
       <item>
         <title>How would you tweet if you were drunk?</title>

@@ -1,0 +1,42 @@
+---
+layout:     post
+title:      "Why do I code?"
+subtitle:   "What do I like most about coding, and why did I choose to make it my career?"
+date:       2016-07-26 19:57:00
+author:     "Vinay"
+header-img: "img/post-bg-why-i-code.jpg"
+---
+
+# Why do I code?
+
+Ever since I wrote my first piece of code, on <a href="https://en.wikipedia.org/wiki/Logo_(programming_language)" target="_blank">Logo</a>, a simple prgramming language that I used for creating art, I've been fascinated by computer programming. For many years, I never really put my head down and thought of why I love programming. I just thought I loved coding because it made me happy.  
+
+Recently, though, I started to think about why I loved coding just so much. I've made it my career. I've found passion in programming. Really, what is it about coding that draws me in? 
+
+### The sheer joy of making things.
+
+Coding is, at it's foundation, about creating. Creating solutions to problems. At the end of the day, I've created a solution that didn't exist before. That feeling of having solved a problem is immensly satisfying.
+
+### The pleasure of making things that are useful for others.
+
+One of the most satisfying part of programming, and having a job as a programmer is seeing code I've written deployed in a live system and being used by actual people. Especially if it improves their lives in any way.
+
+### The fascination of problem solving. 
+
+... and understanding complex puzzle-pieces, and watching them work together. Not only do programs have complex structure and dependencies, there is also the dynamics of the interaction between the parts as the program executes. I've been fascinated with Rubiks cube, mathematical puzzles, physics and other such things for as long as I can remember, and arriving at a solution to a complex problem, to me, is enormously rewarding and satisfying. That feeling never gets old, the feeling of having achieved a solution to a problem.
+
+### The joy of always learning.
+
+Technology moves fast. There are new things constantly coming up and better, faster ways to do something. Learning doesn't stop at your graduation or exam halls. You learn new things every day. While coding, you constantly learn and expand your understanding of both the problem and the solution. In addition, there is almost no limit to what you can learn to improve yourself. Languages, algorithms, methodologies, best practices, tools, frameworks. It keeps the brain sharp and the mind racing.
+
+### The delight of working in such a tractable medium.
+
+I think the programmer, like a poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of imagination. Most of the problem solving happens in my head. What I type is only an end product of what my head has been formulating and re-formulating.   
+A few times I've been unable to solve a particularly tricky problem, I'd give up for the day hoping to see it with fresh mind the next morning; only to dream of the solution. As soon as I wake up and realise what has happened, it seems painfully obvious a solution and I feel silly for not thinking of it consciously. 
+
+That is the beauty of coding. Most of the work happens in the brain. My brain might know the solution but I'm so caught up in the solving it the wrong way, I'm ignoring the basic facts that define the problem and when I put everything aside and sleep it off, my brain shouts out the solution.
+
+
+---
+
+<sup>ps: This post has drawn inspiration from <a href="https://en.wikipedia.org/wiki/The_Mythical_Man-Month" target="_blank">The mythical man-month</a>.</sup>
